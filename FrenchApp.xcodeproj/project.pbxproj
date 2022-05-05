@@ -13,9 +13,26 @@
 		C949440028208DEA006D81E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94943FE28208DEA006D81E3 /* Main.storyboard */; };
 		C949440228208DEB006D81E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949440128208DEB006D81E3 /* Assets.xcassets */; };
 		C949440528208DEB006D81E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C949440328208DEB006D81E3 /* LaunchScreen.storyboard */; };
+		C950C90128240CAB005F9119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C950C90028240CAB005F9119 /* GoogleService-Info.plist */; };
+		C97292342824869100FE6CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292332824869100FE6CAC /* LoginViewController.swift */; };
+		C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9729235282486A300FE6CAC /* RegisterViewController.swift */; };
+		C97292382824870E00FE6CAC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292372824870E00FE6CAC /* Student.swift */; };
+		C972923A2824871E00FE6CAC /* Verb.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292392824871E00FE6CAC /* Verb.swift */; };
+		C972923F282487C000FE6CAC /* SegueEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972923E282487C000FE6CAC /* SegueEnum.swift */; };
+		C97292422824887900FE6CAC /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292402824887900FE6CAC /* Dialog.swift */; };
+		C97292432824887900FE6CAC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292412824887900FE6CAC /* Toast.swift */; };
+		C9729246282488A200FE6CAC /* UIView_addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9729244282488A200FE6CAC /* UIView_addSubviews.swift */; };
+		C9729247282488A200FE6CAC /* UIView_shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9729245282488A200FE6CAC /* UIView_shake.swift */; };
+		C972924B282489BD00FE6CAC /* Strings-en.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924A282489BD00FE6CAC /* Strings-en.swift */; };
+		C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924C282489DC00FE6CAC /* Strings-fr.swift */; };
+		C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924E28248B2700FE6CAC /* HomeViewController.swift */; };
+		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrenchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69AF0A7361A180CE70841F0B /* Pods-FrenchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenchApp.debug.xcconfig"; path = "Target Support Files/Pods-FrenchApp/Pods-FrenchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B80C989F787FB5665B720EA9 /* Pods-FrenchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenchApp.release.xcconfig"; path = "Target Support Files/Pods-FrenchApp/Pods-FrenchApp.release.xcconfig"; sourceTree = "<group>"; };
 		C94943F528208DEA006D81E3 /* FrenchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrenchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94943F828208DEA006D81E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C94943FA28208DEA006D81E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +41,19 @@
 		C949440128208DEB006D81E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C949440428208DEB006D81E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C949440628208DEB006D81E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C950C90028240CAB005F9119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C97292332824869100FE6CAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C9729235282486A300FE6CAC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C97292372824870E00FE6CAC /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		C97292392824871E00FE6CAC /* Verb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verb.swift; sourceTree = "<group>"; };
+		C972923E282487C000FE6CAC /* SegueEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueEnum.swift; sourceTree = "<group>"; };
+		C97292402824887900FE6CAC /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		C97292412824887900FE6CAC /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		C9729244282488A200FE6CAC /* UIView_addSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_addSubviews.swift; sourceTree = "<group>"; };
+		C9729245282488A200FE6CAC /* UIView_shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_shake.swift; sourceTree = "<group>"; };
+		C972924A282489BD00FE6CAC /* Strings-en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings-en.swift"; sourceTree = "<group>"; };
+		C972924C282489DC00FE6CAC /* Strings-fr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings-fr.swift"; sourceTree = "<group>"; };
+		C972924E28248B2700FE6CAC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +61,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3236FB3459848C0B42541CBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3819E26904985F3AE10101A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69AF0A7361A180CE70841F0B /* Pods-FrenchApp.debug.xcconfig */,
+				B80C989F787FB5665B720EA9 /* Pods-FrenchApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C94943EC28208DEA006D81E3 = {
 			isa = PBXGroup;
 			children = (
 				C94943F728208DEA006D81E3 /* FrenchApp */,
+				C950C90028240CAB005F9119 /* GoogleService-Info.plist */,
 				C94943F628208DEA006D81E3 /* Products */,
+				3819E26904985F3AE10101A9 /* Pods */,
+				3236FB3459848C0B42541CBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +107,91 @@
 		C94943F728208DEA006D81E3 /* FrenchApp */ = {
 			isa = PBXGroup;
 			children = (
+				C972923B2824873200FE6CAC /* Source */,
+				C949440C28208DFF006D81E3 /* Model */,
+				C949440D28208E06006D81E3 /* View */,
+				C949440E28208E0B006D81E3 /* Controller */,
 				C94943F828208DEA006D81E3 /* AppDelegate.swift */,
 				C94943FA28208DEA006D81E3 /* SceneDelegate.swift */,
-				C94943FC28208DEA006D81E3 /* ViewController.swift */,
-				C94943FE28208DEA006D81E3 /* Main.storyboard */,
 				C949440128208DEB006D81E3 /* Assets.xcassets */,
 				C949440328208DEB006D81E3 /* LaunchScreen.storyboard */,
 				C949440628208DEB006D81E3 /* Info.plist */,
 			);
 			path = FrenchApp;
+			sourceTree = "<group>";
+		};
+		C949440C28208DFF006D81E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C97292372824870E00FE6CAC /* Student.swift */,
+				C97292392824871E00FE6CAC /* Verb.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C949440D28208E06006D81E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C94943FE28208DEA006D81E3 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C949440E28208E0B006D81E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C94943FC28208DEA006D81E3 /* ViewController.swift */,
+				C97292332824869100FE6CAC /* LoginViewController.swift */,
+				C9729235282486A300FE6CAC /* RegisterViewController.swift */,
+				C972924E28248B2700FE6CAC /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C972923B2824873200FE6CAC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C9729249282489AC00FE6CAC /* Strings */,
+				C9729248282488B800FE6CAC /* Utils */,
+				C972923D2824874B00FE6CAC /* Extensions */,
+				C972923C2824874400FE6CAC /* Network */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C972923C2824874400FE6CAC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C972923D2824874B00FE6CAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C9729244282488A200FE6CAC /* UIView_addSubviews.swift */,
+				C9729245282488A200FE6CAC /* UIView_shake.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C9729248282488B800FE6CAC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C97292402824887900FE6CAC /* Dialog.swift */,
+				C972923E282487C000FE6CAC /* SegueEnum.swift */,
+				C97292412824887900FE6CAC /* Toast.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C9729249282489AC00FE6CAC /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				C972924A282489BD00FE6CAC /* Strings-en.swift */,
+				C972924C282489DC00FE6CAC /* Strings-fr.swift */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C949440928208DEB006D81E3 /* Build configuration list for PBXNativeTarget "FrenchApp" */;
 			buildPhases = (
+				A62E9919363D4A1BCC36BB89 /* [CP] Check Pods Manifest.lock */,
 				C94943F128208DEA006D81E3 /* Sources */,
 				C94943F228208DEA006D81E3 /* Frameworks */,
 				C94943F328208DEA006D81E3 /* Resources */,
+				A74637BF1DFD01369C586CAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C949440528208DEB006D81E3 /* LaunchScreen.storyboard in Resources */,
+				C950C90128240CAB005F9119 /* GoogleService-Info.plist in Resources */,
 				C949440228208DEB006D81E3 /* Assets.xcassets in Resources */,
 				C949440028208DEA006D81E3 /* Main.storyboard in Resources */,
 			);
@@ -133,12 +263,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A62E9919363D4A1BCC36BB89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FrenchApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A74637BF1DFD01369C586CAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrenchApp/Pods-FrenchApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrenchApp/Pods-FrenchApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FrenchApp/Pods-FrenchApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C94943F128208DEA006D81E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C972923F282487C000FE6CAC /* SegueEnum.swift in Sources */,
+				C9729247282488A200FE6CAC /* UIView_shake.swift in Sources */,
+				C972923A2824871E00FE6CAC /* Verb.swift in Sources */,
+				C9729246282488A200FE6CAC /* UIView_addSubviews.swift in Sources */,
+				C972924B282489BD00FE6CAC /* Strings-en.swift in Sources */,
+				C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */,
+				C97292342824869100FE6CAC /* LoginViewController.swift in Sources */,
+				C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */,
+				C97292422824887900FE6CAC /* Dialog.swift in Sources */,
+				C97292382824870E00FE6CAC /* Student.swift in Sources */,
+				C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */,
 				C94943FD28208DEA006D81E3 /* ViewController.swift in Sources */,
+				C97292432824887900FE6CAC /* Toast.swift in Sources */,
 				C94943F928208DEA006D81E3 /* AppDelegate.swift in Sources */,
 				C94943FB28208DEA006D81E3 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,6 +468,7 @@
 		};
 		C949440A28208DEB006D81E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69AF0A7361A180CE70841F0B /* Pods-FrenchApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +497,7 @@
 		};
 		C949440B28208DEB006D81E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B80C989F787FB5665B720EA9 /* Pods-FrenchApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
