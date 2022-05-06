@@ -26,6 +26,10 @@
 		C972924B282489BD00FE6CAC /* Strings-en.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924A282489BD00FE6CAC /* Strings-en.swift */; };
 		C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924C282489DC00FE6CAC /* Strings-fr.swift */; };
 		C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C972924E28248B2700FE6CAC /* HomeViewController.swift */; };
+		C9AD4F2C28254422000CA492 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F2A28254422000CA492 /* Authentication.swift */; };
+		C9AD4F2D28254422000CA492 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F2B28254422000CA492 /* Database.swift */; };
+		C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F2E28254CAA000CA492 /* Contants.swift */; };
+		C9AD4F3228255654000CA492 /* UiEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3128255654000CA492 /* UiEntryView.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,10 @@
 		C972924A282489BD00FE6CAC /* Strings-en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings-en.swift"; sourceTree = "<group>"; };
 		C972924C282489DC00FE6CAC /* Strings-fr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings-fr.swift"; sourceTree = "<group>"; };
 		C972924E28248B2700FE6CAC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C9AD4F2A28254422000CA492 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		C9AD4F2B28254422000CA492 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		C9AD4F2E28254CAA000CA492 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
+		C9AD4F3128255654000CA492 /* UiEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 		C949440D28208E06006D81E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9AD4F302825561A000CA492 /* CustomView */,
 				C94943FE28208DEA006D81E3 /* Main.storyboard */,
 			);
 			path = View;
@@ -151,6 +160,7 @@
 		C972923B2824873200FE6CAC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C9AD4F29282543F4000CA492 /* Services */,
 				C9729249282489AC00FE6CAC /* Strings */,
 				C9729248282488B800FE6CAC /* Utils */,
 				C972923D2824874B00FE6CAC /* Extensions */,
@@ -181,6 +191,7 @@
 				C97292402824887900FE6CAC /* Dialog.swift */,
 				C972923E282487C000FE6CAC /* SegueEnum.swift */,
 				C97292412824887900FE6CAC /* Toast.swift */,
+				C9AD4F2E28254CAA000CA492 /* Contants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -192,6 +203,23 @@
 				C972924C282489DC00FE6CAC /* Strings-fr.swift */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		C9AD4F29282543F4000CA492 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C9AD4F2A28254422000CA492 /* Authentication.swift */,
+				C9AD4F2B28254422000CA492 /* Database.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C9AD4F302825561A000CA492 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C9AD4F3128255654000CA492 /* UiEntryView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,16 +343,20 @@
 				C972923A2824871E00FE6CAC /* Verb.swift in Sources */,
 				C9729246282488A200FE6CAC /* UIView_addSubviews.swift in Sources */,
 				C972924B282489BD00FE6CAC /* Strings-en.swift in Sources */,
+				C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */,
 				C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */,
 				C97292342824869100FE6CAC /* LoginViewController.swift in Sources */,
 				C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */,
 				C97292422824887900FE6CAC /* Dialog.swift in Sources */,
 				C97292382824870E00FE6CAC /* Student.swift in Sources */,
 				C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */,
+				C9AD4F3228255654000CA492 /* UiEntryView.swift in Sources */,
 				C94943FD28208DEA006D81E3 /* ViewController.swift in Sources */,
 				C97292432824887900FE6CAC /* Toast.swift in Sources */,
+				C9AD4F2D28254422000CA492 /* Database.swift in Sources */,
 				C94943F928208DEA006D81E3 /* AppDelegate.swift in Sources */,
 				C94943FB28208DEA006D81E3 /* SceneDelegate.swift in Sources */,
+				C9AD4F2C28254422000CA492 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
