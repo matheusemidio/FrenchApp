@@ -9,8 +9,9 @@ import Foundation
 
 enum Segue
 {
-    static let toLoginViewController : String = "toLoginViewController"
-    static let toRegisterViewController : String = "toRegisterViewController"
-    static let toHomeViewController : String = "toHomeViewController"
+    static let fromMain_toLogin : String = "fromMain_toLogin"
+    static let fromRegister_toLogin : String = "fromRegister_toLogin"
+    static let fromMain_toRegister : String = "fromMain_toRegister"
+    static let fromLogin_toHome : String = "fromLogin_toHome"
 
 }

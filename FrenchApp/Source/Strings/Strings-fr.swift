@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Strings_Fr
-{
-    static let test : String = "test"
-}
+//enum Strings_Fr
+//{
+//    static let test : String = "test"
+//}

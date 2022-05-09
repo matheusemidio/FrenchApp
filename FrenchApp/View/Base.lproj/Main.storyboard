@@ -34,7 +34,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="ySI-40-cWG" kind="show" identifier="toRegisterViewController" id="1RY-s6-OJe"/>
+                                    <segue destination="ySI-40-cWG" kind="show" identifier="fromMain_toRegister" id="1RY-s6-OJe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYb-fd-0rR">
@@ -47,7 +47,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Rc9-AN-GPk" kind="show" identifier="toLoginViewController" id="NjC-rW-cev"/>
+                                    <segue destination="Rc9-AN-GPk" kind="show" identifier="fromMain_toLogin" id="NjC-rW-cev"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,28 +68,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt9-kS-Juv">
-                                <rect key="frame" x="122" y="644" width="170" height="169"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN7-05-Kg8">
+                                <rect key="frame" x="0.0" y="693" width="414" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="FrenchBlue"/>
+                                <color key="backgroundColor" name="FrenchRed"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Test">
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="test:" destination="ySI-40-cWG" eventType="touchUpInside" id="XNC-NL-tsu"/>
+                                    <action selector="btnRegisterTouchUp:" destination="ySI-40-cWG" eventType="touchUpInside" id="b8w-xm-77v"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5nb-iX-v74"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rXF-Hm-QVn"/>
+                    <navigationItem key="navigationItem" id="rXF-Hm-QVn">
+                        <barButtonItem key="rightBarButtonItem" image="network" catalog="system" id="0zv-6p-G8K">
+                            <connections>
+                                <action selector="barBtnTouchUp:" destination="ySI-40-cWG" id="etg-zY-WZj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnRegisterOutlet" destination="eN7-05-Kg8" id="ZT3-20-fAT"/>
+                        <segue destination="Rc9-AN-GPk" kind="show" identifier="fromRegister_toLogin" id="3fz-zJ-mgn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwP-Vd-LOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8115942028987" y="470.75892857142856"/>
+            <point key="canvasLocation" x="1367" y="349"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="AEU-1d-N0h">
@@ -98,13 +108,23 @@
                     <view key="view" contentMode="scaleToFill" id="xOy-l8-fxa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-BU-uGC">
+                                <rect key="frame" x="20" y="362" width="374" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="A2j-HD-7ox"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GnH-Io-ce7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z01-mB-7sY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434.7826086956525" y="107.8125"/>
+            <point key="canvasLocation" x="3139" y="108"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="DBX-uI-23u">
@@ -114,26 +134,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="gO5-rG-tnc">
-                                <rect key="frame" x="20" y="86" width="374" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-ga-Zh3">
+                                <rect key="frame" x="0.0" y="693" width="414" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3Q-T7-UV8">
-                                <rect key="frame" x="66" y="115" width="277" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" name="FrenchBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnLoginTouchUp:" destination="Rc9-AN-GPk" eventType="touchUpInside" id="3QJ-Ol-Te8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DGo-2Z-idc"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
                     <navigationItem key="navigationItem" id="ERV-3C-iKX"/>
+                    <connections>
+                        <outlet property="btnLoginOutlet" destination="HI5-ga-Zh3" id="F4b-Cw-9Qe"/>
+                        <segue destination="yL2-cq-gja" kind="show" identifier="fromLogin_toHome" id="Np0-2J-qXa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dba-5G-APL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8115942028987" y="-271.20535714285711"/>
+            <point key="canvasLocation" x="2123" y="-269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Lx-OJ-0Fd">
@@ -154,8 +180,11 @@
             <point key="canvasLocation" x="-510.14492753623193" y="108.48214285714285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3fz-zJ-mgn"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="textfield" width="298" height="93"/>
+        <image name="network" catalog="system" width="128" height="121"/>
         <namedColor name="FrenchBackground">
             <color red="0.71100002527236938" green="0.87900000810623169" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

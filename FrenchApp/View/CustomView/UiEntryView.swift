@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UiEntryView: UIView {
+class UIEntryView: UIView {
 
     
     
@@ -17,7 +17,7 @@ class UiEntryView: UIView {
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
-    private let txtEntry : UITextField = {
+    public let txtEntry : UITextField = {
         let input = UITextField()
         input.font = UIFont.systemFont(ofSize: 20)
         input.textColor = .systemGray
@@ -27,6 +27,8 @@ class UiEntryView: UIView {
         input.translatesAutoresizingMaskIntoConstraints = false
         input.isSecureTextEntry = false
         input.text = ""
+        input.keyboardType = .default
+//        input.autocapitalizationType = UITextAutocapitalizationType
         return input
         
     }()
@@ -39,6 +41,17 @@ class UiEntryView: UIView {
     public var isSecure : Bool = false{
         didSet{
             txtEntry.isSecureTextEntry = isSecure
+        }
+    }
+    public var capitalizationType : UITextAutocapitalizationType = .words
+    {
+        didSet{
+            txtEntry.autocapitalizationType = capitalizationType
+        }
+    }
+    public var typeOfKeyboard : UIKeyboardType = .asciiCapable{
+        didSet{
+            txtEntry.keyboardType = typeOfKeyboard
         }
     }
     

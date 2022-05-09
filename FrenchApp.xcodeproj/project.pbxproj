@@ -13,7 +13,6 @@
 		C949440028208DEA006D81E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94943FE28208DEA006D81E3 /* Main.storyboard */; };
 		C949440228208DEB006D81E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949440128208DEB006D81E3 /* Assets.xcassets */; };
 		C949440528208DEB006D81E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C949440328208DEB006D81E3 /* LaunchScreen.storyboard */; };
-		C950C90128240CAB005F9119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C950C90028240CAB005F9119 /* GoogleService-Info.plist */; };
 		C97292342824869100FE6CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292332824869100FE6CAC /* LoginViewController.swift */; };
 		C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9729235282486A300FE6CAC /* RegisterViewController.swift */; };
 		C97292382824870E00FE6CAC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97292372824870E00FE6CAC /* Student.swift */; };
@@ -30,6 +29,9 @@
 		C9AD4F2D28254422000CA492 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F2B28254422000CA492 /* Database.swift */; };
 		C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F2E28254CAA000CA492 /* Contants.swift */; };
 		C9AD4F3228255654000CA492 /* UiEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3128255654000CA492 /* UiEntryView.swift */; };
+		C9AD4F34282957A1000CA492 /* DictionaryEncDec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F33282957A1000CA492 /* DictionaryEncDec.swift */; };
+		C9AD4F38282984E3000CA492 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9AD4F37282984E3000CA492 /* GoogleService-Info.plist */; };
+		C9AD4F3A28299194000CA492 /* String_isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3928299194000CA492 /* String_isValidEmail.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +47,6 @@
 		C949440128208DEB006D81E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C949440428208DEB006D81E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C949440628208DEB006D81E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C950C90028240CAB005F9119 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C97292332824869100FE6CAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9729235282486A300FE6CAC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C97292372824870E00FE6CAC /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -62,6 +63,9 @@
 		C9AD4F2B28254422000CA492 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		C9AD4F2E28254CAA000CA492 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		C9AD4F3128255654000CA492 /* UiEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiEntryView.swift; sourceTree = "<group>"; };
+		C9AD4F33282957A1000CA492 /* DictionaryEncDec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncDec.swift; sourceTree = "<group>"; };
+		C9AD4F37282984E3000CA492 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9AD4F3928299194000CA492 /* String_isValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_isValidEmail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				C94943F728208DEA006D81E3 /* FrenchApp */,
-				C950C90028240CAB005F9119 /* GoogleService-Info.plist */,
 				C94943F628208DEA006D81E3 /* Products */,
 				3819E26904985F3AE10101A9 /* Pods */,
 				3236FB3459848C0B42541CBC /* Frameworks */,
@@ -124,6 +127,7 @@
 				C949440128208DEB006D81E3 /* Assets.xcassets */,
 				C949440328208DEB006D81E3 /* LaunchScreen.storyboard */,
 				C949440628208DEB006D81E3 /* Info.plist */,
+				C9AD4F37282984E3000CA492 /* GoogleService-Info.plist */,
 			);
 			path = FrenchApp;
 			sourceTree = "<group>";
@@ -179,6 +183,7 @@
 		C972923D2824874B00FE6CAC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C9AD4F3928299194000CA492 /* String_isValidEmail.swift */,
 				C9729244282488A200FE6CAC /* UIView_addSubviews.swift */,
 				C9729245282488A200FE6CAC /* UIView_shake.swift */,
 			);
@@ -188,6 +193,7 @@
 		C9729248282488B800FE6CAC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C9AD4F33282957A1000CA492 /* DictionaryEncDec.swift */,
 				C97292402824887900FE6CAC /* Dialog.swift */,
 				C972923E282487C000FE6CAC /* SegueEnum.swift */,
 				C97292412824887900FE6CAC /* Toast.swift */,
@@ -283,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C949440528208DEB006D81E3 /* LaunchScreen.storyboard in Resources */,
-				C950C90128240CAB005F9119 /* GoogleService-Info.plist in Resources */,
+				C9AD4F38282984E3000CA492 /* GoogleService-Info.plist in Resources */,
 				C949440228208DEB006D81E3 /* Assets.xcassets in Resources */,
 				C949440028208DEA006D81E3 /* Main.storyboard in Resources */,
 			);
@@ -351,8 +357,10 @@
 				C97292382824870E00FE6CAC /* Student.swift in Sources */,
 				C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */,
 				C9AD4F3228255654000CA492 /* UiEntryView.swift in Sources */,
+				C9AD4F34282957A1000CA492 /* DictionaryEncDec.swift in Sources */,
 				C94943FD28208DEA006D81E3 /* ViewController.swift in Sources */,
 				C97292432824887900FE6CAC /* Toast.swift in Sources */,
+				C9AD4F3A28299194000CA492 /* String_isValidEmail.swift in Sources */,
 				C9AD4F2D28254422000CA492 /* Database.swift in Sources */,
 				C94943F928208DEA006D81E3 /* AppDelegate.swift in Sources */,
 				C94943FB28208DEA006D81E3 /* SceneDelegate.swift in Sources */,

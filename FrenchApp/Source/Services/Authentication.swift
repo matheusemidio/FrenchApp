@@ -24,21 +24,21 @@ class Authentication
         }
     }
     
-//    static func signUp(user : User, password : String, successHandler : @escaping( _ user : User) -> Void,
-//                       failHandler : @escaping( _ errorMessage : String)-> Void)
-//    {
-//        Auth.auth().createUser(withEmail: user.email.lowercased(), password: password) {result, error in
-//            if error != nil
-//            {
-////                print(error!.localizedDescription)
-//                failHandler(error!.localizedDescription)
-//                return
-//            }
-////            print(result!.user.uid)
-//            user.uid = result!.user.uid //Returned by firebase authentication
-//            successHandler(user)
-//        }
-//    }
+    static func signUp(user : Student, password : String, successHandler : @escaping( _ user : Student) -> Void,
+                       failHandler : @escaping( _ errorMessage : String)-> Void)
+    {
+        Auth.auth().createUser(withEmail: user.email.lowercased(), password: password) {result, error in
+            if error != nil
+            {
+//                print(error!.localizedDescription)
+                failHandler(error!.localizedDescription)
+                return
+            }
+//            print(result!.user.uid)
+            user.uid = result!.user.uid //Returned by firebase authentication
+            successHandler(user)
+        }
+    }
     
     
 

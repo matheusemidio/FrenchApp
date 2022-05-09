@@ -5,8 +5,27 @@
 //  Created by Matheus Cadena on 2022-05-06.
 //
 
+import CoreGraphics
+
 
 struct Contants
 {
     static var loggedUser : String = "loggedUser"
+    static var formEntryHeight : CGFloat = 100
+    static var formEntrySpacing : CGFloat = 10
+    
+    
+//    static var language : String = "english"
+    
+//    public static func changeLanguage()
+//    {
+//        if(self.language == "english")
+//        {
+//            self.language = "french"
+//        }
+//        else
+//        {
+//            self.language = "english"
+//        }
+//    }
 }
