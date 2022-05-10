@@ -13,5 +13,9 @@ enum Segue
     static let fromRegister_toLogin : String = "fromRegister_toLogin"
     static let fromMain_toRegister : String = "fromMain_toRegister"
     static let fromLogin_toHome : String = "fromLogin_toHome"
+    static let ConjugateViewController : String = "ConjugateViewController"
+    static let HomeViewController : String = "HomeViewController"
+    static let ProfileViewController : String = "ProfileViewController"
+    static let SocialViewController : String = "SocialViewController"
 
 }

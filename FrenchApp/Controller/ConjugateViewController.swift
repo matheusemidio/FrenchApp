@@ -1,13 +1,13 @@
 //
-//  HomeViewController.swift
+//  ConjugateViewController.swift
 //  FrenchApp
 //
-//  Created by Matheus Cadena on 2022-05-05.
+//  Created by Matheus Cadena on 2022-05-10.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController, UINavbarDelegate {
+class ConjugateViewController: UIViewController, UINavbarDelegate {
 
     //MARK: - Declarations
     public var navbar : UINavbar = UINavbar()
@@ -36,10 +36,10 @@ class HomeViewController: UIViewController, UINavbarDelegate {
     //MARK: - Navbar Action Handlers
     func conjugateTapped()
     {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
-        show(conjugateViewController, sender: self)
-
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
+//        show(conjugateViewController, sender: self)
+//
         print("Conjugate tapped")
     }
     func profileTapped()
@@ -58,9 +58,9 @@ class HomeViewController: UIViewController, UINavbarDelegate {
     }
     func homeTapped()
     {
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
-//        show(homeViewController, sender: self)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+        show(homeViewController, sender: self)
         print("Home tapped")
     }
 

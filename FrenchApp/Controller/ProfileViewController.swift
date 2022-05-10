@@ -1,13 +1,13 @@
 //
-//  HomeViewController.swift
+//  ProfileViewController.swift
 //  FrenchApp
 //
-//  Created by Matheus Cadena on 2022-05-05.
+//  Created by Matheus Cadena on 2022-05-10.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController, UINavbarDelegate {
+class ProfileViewController: UIViewController , UINavbarDelegate{
 
     //MARK: - Declarations
     public var navbar : UINavbar = UINavbar()
@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UINavbarDelegate {
         self.navigationItem.setHidesBackButton(true, animated: true)
         initialize()
     }
+    
+
     private func initialize()
     {
         self.view.addSubview(navbar)
@@ -44,9 +46,9 @@ class HomeViewController: UIViewController, UINavbarDelegate {
     }
     func profileTapped()
     {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
-        show(profileViewController, sender: self)
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
+//        show(profileViewController, sender: self)
         print("Profile tapped")
     }
     func socialTapped()
@@ -58,9 +60,9 @@ class HomeViewController: UIViewController, UINavbarDelegate {
     }
     func homeTapped()
     {
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
-//        show(homeViewController, sender: self)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+        show(homeViewController, sender: self)
         print("Home tapped")
     }
 

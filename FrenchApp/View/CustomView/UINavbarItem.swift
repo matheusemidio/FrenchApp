@@ -57,12 +57,12 @@ class UINavbarItem: UIView {
     {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubviews(lblItem, imgItem)
-
         self.backgroundColor = .lightGray.withAlphaComponent(0.70)
-
+        
         applyContraints()
         
     }
+    
     private func applyContraints()
     {
         imgItem.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
@@ -78,7 +78,4 @@ class UINavbarItem: UIView {
         lblItem.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
 
-    
-    
-    
 }
