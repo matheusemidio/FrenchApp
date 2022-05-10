@@ -46,6 +46,11 @@ class LoginViewController: UIViewController {
     
         self.view.addSubviews(txtEmail, txtPassword)
         applyContraints()
+        
+        
+        //Debug:
+        txtEmail.txtEntry.text = "matheus@me.com"
+        txtPassword.txtEntry.text = "123456"
     }
     
     private func applyContraints()

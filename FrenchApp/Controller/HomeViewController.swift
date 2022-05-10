@@ -9,20 +9,29 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    //MARK: - Declarations
+    public var navbar : UINavbar = UINavbar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
+        initialize()
+    }
+    private func initialize()
+    {
+        self.view.addSubview(navbar)
+        applyContraints()
+    }
+    private func applyContraints()
+    {
+        navbar.translatesAutoresizingMaskIntoConstraints = false
+        navbar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        navbar.heightAnchor.constraint(equalToConstant: Contants.navBarItemDimension).isActive = true
+        navbar.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -32,6 +32,8 @@
 		C9AD4F34282957A1000CA492 /* DictionaryEncDec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F33282957A1000CA492 /* DictionaryEncDec.swift */; };
 		C9AD4F38282984E3000CA492 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9AD4F37282984E3000CA492 /* GoogleService-Info.plist */; };
 		C9AD4F3A28299194000CA492 /* String_isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3928299194000CA492 /* String_isValidEmail.swift */; };
+		C9AD4F3C282A8BDA000CA492 /* UINavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3B282A8BDA000CA492 /* UINavbar.swift */; };
+		C9AD4F3E282A8C64000CA492 /* UINavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F3D282A8C64000CA492 /* UINavbarItem.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		C9AD4F33282957A1000CA492 /* DictionaryEncDec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncDec.swift; sourceTree = "<group>"; };
 		C9AD4F37282984E3000CA492 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9AD4F3928299194000CA492 /* String_isValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_isValidEmail.swift; sourceTree = "<group>"; };
+		C9AD4F3B282A8BDA000CA492 /* UINavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavbar.swift; sourceTree = "<group>"; };
+		C9AD4F3D282A8C64000CA492 /* UINavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavbarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				C9AD4F3128255654000CA492 /* UiEntryView.swift */,
+				C9AD4F3B282A8BDA000CA492 /* UINavbar.swift */,
+				C9AD4F3D282A8C64000CA492 /* UINavbarItem.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				C972923F282487C000FE6CAC /* SegueEnum.swift in Sources */,
 				C9729247282488A200FE6CAC /* UIView_shake.swift in Sources */,
 				C972923A2824871E00FE6CAC /* Verb.swift in Sources */,
+				C9AD4F3E282A8C64000CA492 /* UINavbarItem.swift in Sources */,
 				C9729246282488A200FE6CAC /* UIView_addSubviews.swift in Sources */,
 				C972924B282489BD00FE6CAC /* Strings-en.swift in Sources */,
 				C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */,
@@ -363,6 +370,7 @@
 				C9AD4F3A28299194000CA492 /* String_isValidEmail.swift in Sources */,
 				C9AD4F2D28254422000CA492 /* Database.swift in Sources */,
 				C94943F928208DEA006D81E3 /* AppDelegate.swift in Sources */,
+				C9AD4F3C282A8BDA000CA492 /* UINavbar.swift in Sources */,
 				C94943FB28208DEA006D81E3 /* SceneDelegate.swift in Sources */,
 				C9AD4F2C28254422000CA492 /* Authentication.swift in Sources */,
 			);

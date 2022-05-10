@@ -9,8 +9,7 @@ import UIKit
 
 class UIEntryView: UIView {
 
-    
-    
+    //MARK: - Declaration of items
     private let imgBackground : UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: "textfield")
@@ -33,6 +32,7 @@ class UIEntryView: UIView {
         
     }()
 
+    //MARK: - Setters
     public var title : String = "" {
         didSet{
             txtEntry.placeholder = title
@@ -55,6 +55,7 @@ class UIEntryView: UIView {
         }
     }
     
+    //MARK: - Required functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -63,6 +64,8 @@ class UIEntryView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Initializers
     private func initialize()
     {
         self.translatesAutoresizingMaskIntoConstraints = false
