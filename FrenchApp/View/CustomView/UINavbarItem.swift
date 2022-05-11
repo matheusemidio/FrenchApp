@@ -57,7 +57,9 @@ class UINavbarItem: UIView {
     {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubviews(lblItem, imgItem)
-        self.backgroundColor = .lightGray.withAlphaComponent(0.70)
+        
+        self.backgroundColor = UIColor(named: Contants.frenchBlue)?.withAlphaComponent(0.10)
+//        self.backgroundColor = .lightGray.withAlphaComponent(0.70)
         
         applyContraints()
         

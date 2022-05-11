@@ -40,6 +40,29 @@ class Authentication
         }
     }
     
+//    static func update(user : Student, password : String, successHandler : @escaping( _ user : Student) -> Void,
+//                       failHandler : @escaping( _ errorMessage : String)-> Void)
+//    {
+////        if Auth.auth().currentUser != nil
+////        {
+////            Auth.auth().currentUser?.updatePassword(to: password) { error in
+////                if error != nil
+////                {
+////    //                print(error!.localizedDescription)
+////                    failHandler(error!.localizedDescription)
+////                    return
+////                }
+////                user.uid = result!.user.uid //Returned by firebase authentication
+////                successHandler()
+////            }
+////        }
+////        else
+////        {
+////          failHandler("User is not signed in")
+////        }
+//    }
+    
+    
     
 
 //    static func signOut(email : String, password : String,

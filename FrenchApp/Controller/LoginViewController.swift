@@ -9,18 +9,21 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    //MARK: - Declaration
+    //MARK: - Declaration of views
     public var txtEmail : UIEntryView = UIEntryView()
     public var txtPassword : UIEntryView = UIEntryView()
     
+    //MARK: - Declaration of variables
+
+    
+    //MARK: - Declaration of outlets
     @IBOutlet weak var btnLoginOutlet: UIButton!
     
+    //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
     }
-
-    //MARK: - Initialization of entries
     private func setPlaceholders()
     {
         txtEmail.title = Strings_En.email
@@ -40,6 +43,7 @@ class LoginViewController: UIViewController {
         
     }
     
+    //MARK: - Initialize and constraints
     private func initialize()
     {
         configure()
@@ -69,6 +73,7 @@ class LoginViewController: UIViewController {
 
     }
     
+    //MARK: - Login action handler
     @IBAction func btnLoginTouchUp(_ sender: Any)
     {
         guard let email = txtEmail.txtEntry.text, email != "", email.isValidEmail() == true else
@@ -84,6 +89,7 @@ class LoginViewController: UIViewController {
         Authentication.signIn(email: email, password: password, successHandler: authSuccessHandler, failHandler: authFailHandler)
     }
     
+    //MARK: - Authentication action handler
     func authSuccessHandler( _ userUid : String)
     {
         Student.find(uid: userUid, successHandler: findSuccessHandler, failHandler: findFailHandler)
@@ -94,10 +100,15 @@ class LoginViewController: UIViewController {
         btnLoginOutlet.shakeWith(txtEmail, txtPassword)
     }
     
+    //MARK: - Find action handler
     func findSuccessHandler(_ student : Student)
     {
         print("Login was sucessful")
-        performSegue(withIdentifier: Segue.fromLogin_toHome, sender: self)
+        Contants.loggedUser = student
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+        show(homeViewController, sender: self)
     }
     func findFailHandler(_ errorMessage : String)
     {

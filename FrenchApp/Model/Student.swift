@@ -61,6 +61,32 @@ class Student : Codable
             failHandler(err.localizedDescription)
         }
     }
+//    func update(uid : String, student : Student, successHandler : @escaping() -> Void,
+//              failHandler : @escaping( _ errorMessage : String) -> Void)
+//    {
+//        if self.uid == nil
+//        {
+//            failHandler("There is no UID for this student!")
+//            return
+//        }
+//
+//        do
+//        {
+//            let data = try DictionaryEncoder().encode(self)
+//            Database.reference.child(Student.collectionName).child(uid).setValue(data) { error, databaseReference in
+//                if error != nil
+//                {
+//                    failHandler(error!.localizedDescription)
+//                    return
+//                }
+//            }
+//            successHandler()
+//        }
+//        catch let err
+//        {
+//            failHandler(err.localizedDescription)
+//        }
+//    }
     
     func delete(successHandler : @escaping() -> Void,
               failHandler : @escaping( _ errorMessage : String) -> Void)

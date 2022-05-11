@@ -83,7 +83,9 @@ class UINavbar: UIView{
         configure()
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubviews(navItemProfile, navItemSocial, navItemConjugate, navItemHome)
-        self.backgroundColor = .lightGray.withAlphaComponent(0.70)
+       
+        self.backgroundColor = UIColor(named: Contants.frenchBlue)?.withAlphaComponent(0.10)
+//        self.backgroundColor = .lightGray.withAlphaComponent(0.70)
 
         handleGestureRecognizer()
         

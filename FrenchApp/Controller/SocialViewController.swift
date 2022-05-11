@@ -9,15 +9,25 @@ import UIKit
 
 class SocialViewController: UIViewController, UINavbarDelegate {
 
-    //MARK: - Declarations
+    //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
     
+    //MARK: - Declaration of variables
+
+    //MARK: - Declaration of outlets
+    @IBOutlet weak var titleDebugOutlet: UILabel!
+
+    //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         initialize()
+        self.title = "Social"
+        titleDebugOutlet.isHidden = true
+
     }
     
+    //MARK: - Initialize and constraints
     private func initialize()
     {
         self.view.addSubview(navbar)

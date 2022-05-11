@@ -9,14 +9,25 @@ import UIKit
 
 class ConjugateViewController: UIViewController, UINavbarDelegate {
 
-    //MARK: - Declarations
+    //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
     
+    //MARK: - Declaration of variables
+
+    //MARK: - Declaration of outlets
+    @IBOutlet weak var titleDebugOutlet: UILabel!
+    
+    //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         initialize()
+        self.title = "Conjugate"
+        titleDebugOutlet.isHidden = true
+
     }
+    
+    //MARK: - Initialize and constraints
     private func initialize()
     {
         self.view.addSubview(navbar)
@@ -47,6 +58,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
         show(profileViewController, sender: self)
+//        present(profileViewController, animated: false, completion: nil)
         print("Profile tapped")
     }
     func socialTapped()

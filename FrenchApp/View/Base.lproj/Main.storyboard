@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWM-2n-gcf">
-                                <rect key="frame" x="244" y="642" width="170" height="169"/>
+                                <rect key="frame" x="244" y="656" width="170" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchRed"/>
                                 <state key="normal" title="Button"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYb-fd-0rR">
-                                <rect key="frame" x="0.0" y="642" width="170" height="169"/>
+                                <rect key="frame" x="0.0" y="656" width="170" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchBlue"/>
                                 <state key="normal" title="Button"/>
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN7-05-Kg8">
-                                <rect key="frame" x="0.0" y="693" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="712" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchRed"/>
                                 <state key="normal" title="Button"/>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwP-Vd-LOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367" y="349"/>
+            <point key="canvasLocation" x="1366.6666666666667" y="348.88392857142856"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="AEU-1d-N0h">
@@ -118,9 +118,12 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A2j-HD-7ox"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
                     <navigationItem key="navigationItem" id="GnH-Io-ce7"/>
+                    <connections>
+                        <outlet property="titleDebugOutlet" destination="q6X-BU-uGC" id="Lju-Xy-GWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z01-mB-7sY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,8 +146,11 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HKZ-Mr-FVI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
+                    <connections>
+                        <outlet property="titleDebugOutlet" destination="F5Q-Fh-Gxq" id="CXZ-qv-ebh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ind-Wi-hdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,8 +173,11 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZSe-ko-Hwu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
+                    <connections>
+                        <outlet property="lblTitleDebug" destination="ml9-Jb-rQU" id="Csk-Zm-GZE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oD-vQ-d0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-ga-Zh3">
-                                <rect key="frame" x="0.0" y="693" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="712" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchBlue"/>
                                 <state key="normal" title="Button"/>
@@ -202,12 +211,11 @@
                     <navigationItem key="navigationItem" id="ERV-3C-iKX"/>
                     <connections>
                         <outlet property="btnLoginOutlet" destination="HI5-ga-Zh3" id="F4b-Cw-9Qe"/>
-                        <segue destination="yL2-cq-gja" kind="show" identifier="fromLogin_toHome" id="Np0-2J-qXa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dba-5G-APL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="-269"/>
+            <point key="canvasLocation" x="2121.739130434783" y="-269.19642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Lx-OJ-0Fd">
@@ -227,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="-510.14492753623193" y="108.48214285714285"/>
         </scene>
-        <!--Conjugate View Controller-->
+        <!--Title-->
         <scene sceneID="gXF-zM-ugT">
             <objects>
                 <viewController storyboardIdentifier="ConjugateViewController" id="bda-6f-AXq" customClass="ConjugateViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,10 +250,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vaN-st-8hg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.94717168009999997" green="0.94717168009999997" blue="0.94717168009999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </textAttributes>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d2h-kh-TFY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="OwD-XH-ZRL"/>
+                    <connections>
+                        <outlet property="titleDebugOutlet" destination="qsY-C7-VbZ" id="zPn-Yi-lBt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuV-Ut-gQB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,7 +276,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3fz-zJ-mgn"/>
+        <segue reference="NjC-rW-cev"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="network" catalog="system" width="128" height="121"/>

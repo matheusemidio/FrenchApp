@@ -10,23 +10,24 @@ import FirebaseCoreInternal
 
 class RegisterViewController: UIViewController {
 
-    //MARK: - Declaration
+    //MARK: - Declaration of Views
     public var txtEmail : UIEntryView = UIEntryView()
     public var txtPassword : UIEntryView = UIEntryView()
     public var txtFirstName : UIEntryView = UIEntryView()
     public var txtLastName : UIEntryView = UIEntryView()
     public var txtAge : UIEntryView = UIEntryView()
     
+    //MARK: - Declaration of variables
+
+    //MARK: - Declaration of outlets
     @IBOutlet weak var btnRegisterOutlet: UIButton!
     
-    
+    //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
         
     }
-    
-    //MARK: - Initialization of entries
     private func setPlaceholders()
     {
         txtEmail.title = Strings_En.email
@@ -51,6 +52,7 @@ class RegisterViewController: UIViewController {
         
     }
     
+    //MARK: - Initialize and constraints
     private func initialize()
     {
         configure()
@@ -96,8 +98,7 @@ class RegisterViewController: UIViewController {
         
     }
     
-    
-
+    //MARK: - Register action handler
     @IBAction func btnRegisterTouchUp(_ sender: Any)
     {
         //Validate Regex email
@@ -135,6 +136,8 @@ class RegisterViewController: UIViewController {
         var student = Student(firstName: firstName, lastName: lastName, email: email, age: age)
         Authentication.signUp(user: student, password: password, successHandler: authSuccessHandler, failHandler: authFailHandler)
     }
+    
+    //MARK: - Authentication action handler
     func authSuccessHandler(_ student : Student)
     {
         print("Auth was succesful")
@@ -145,6 +148,8 @@ class RegisterViewController: UIViewController {
         print("AuthenticationFail -> \(errorMessage)")
         btnRegisterOutlet.shakeWith(txtEmail, txtPassword, txtAge, txtFirstName, txtLastName)
     }
+    
+    //MARK: - Save action handler
     func saveUserSucessHandler()
     {
         print("The new student was saved")
@@ -157,15 +162,4 @@ class RegisterViewController: UIViewController {
         btnRegisterOutlet.shakeWith(txtEmail, txtPassword, txtAge, txtFirstName, txtLastName)
     }
     
-    
-//    @IBAction func barBtnTouchUp(_ sender: Any)
-//    {
-//        Contants.changeLanguage()
-//        setPlaceholders()
-//        print(Contants.language)
-//    }
-//    @IBAction func test(_ sender: Any) {
-////        print(self.txtEmail.txtEntry.text)
-//
-//    }
 }

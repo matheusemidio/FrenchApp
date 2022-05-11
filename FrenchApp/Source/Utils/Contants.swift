@@ -10,10 +10,12 @@ import CoreGraphics
 
 struct Contants
 {
-    static var loggedUser : String = "loggedUser"
+    static var loggedUser : Student = Student()
     static var formEntryHeight : CGFloat = 100
     static var formEntrySpacing : CGFloat = 10
     static var navBarItemDimension : CGFloat = 80
+    static var frenchBlue : String = "FrenchBlue"
+    static var frenchRed : String = "FrenchRed"
     
 //    static var language : String = "english"
     
