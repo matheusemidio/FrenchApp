@@ -20,6 +20,26 @@ enum Strings_En
     static let lastName : String = "Last Name"
     static let age : String = "Age"
     static let password : String = "Password"
+    static let verbSearch : String = "Search verb"
+    static let tenseSearch : String = "Search tense"
+    static let singFirst : String = "Je/J'ai"
+    static let singSecond : String = "Tu"
+    static let singThird : String = "Il/Elle/On"
+    static let plurFirst : String = "Nous"
+    static let plurSecond : String = "Vous"
+    static let plurThird : String = "Ils/Elles"
+    static let homeTitle : String = "Home"
+    static let conjugateTitle : String = "Conjugate"
+    static let socialTitle : String = "Social"
+    static let practiceTitle : String = "Practice"
+    static let profileTitle : String = "Profile"
+    static let pickerRandomVerb : String = "Random verb"
+    static let pickerSearchVerb : String = "Search verb"
+    static let pickerRandomTense : String = "Random tense"
+    static let pickerSearchTense : String = "Search tense"
+    static let searchFriend : String = "Search for a friend"
+
+
 
 }
 

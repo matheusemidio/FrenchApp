@@ -22,7 +22,7 @@ class UIEntryView: UIView {
         input.textColor = .systemGray
         input.textAlignment = .center
         input.backgroundColor = .white
-        input.borderStyle = .roundedRect
+//        input.borderStyle = .roundedRect
         input.translatesAutoresizingMaskIntoConstraints = false
         input.isSecureTextEntry = false
         input.text = ""

@@ -17,7 +17,7 @@ class Student : Codable
     var lastName : String
     var email : String
     var age : String
-
+    var conjugationStreak : Int
     
     init()
     {
@@ -25,6 +25,7 @@ class Student : Codable
         self.lastName = ""
         self.email = ""
         self.age = ""
+        self.conjugationStreak = 0
     }
     init(firstName : String, lastName : String, email : String, age : String)
     {
@@ -32,9 +33,12 @@ class Student : Codable
         self.lastName = lastName
         self.email = email
         self.age = age
-        
+        self.conjugationStreak = 0
     }
-    
+    func getFullName() -> String
+    {
+        return ("\(self.firstName)  \(self.lastName)")
+    }
     func save(successHandler : @escaping() -> Void,
               failHandler : @escaping( _ errorMessage : String) -> Void)
     {

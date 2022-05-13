@@ -23,13 +23,14 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
     //MARK: - Declaration of outlets
     @IBOutlet weak var lblTitleDebug: UILabel!
     
+    
     //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         lblTitleDebug.isHidden = true
         initialize()
-        self.title = "Profile"
+        self.title = Strings_En.profileTitle
 
     }
     private func updateValues()
@@ -121,7 +122,7 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
         btnUpdate.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         btnUpdate.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         btnUpdate.bottomAnchor.constraint(equalTo: navbar.topAnchor, constant: -20).isActive = true
-        btnUpdate.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        btnUpdate.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
     

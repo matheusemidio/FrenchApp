@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
     public var txtAge : UIEntryView = UIEntryView()
     
     //MARK: - Declaration of variables
-
+    public var studentToBeSaved : Student?
     //MARK: - Declaration of outlets
     @IBOutlet weak var btnRegisterOutlet: UIButton!
     
@@ -141,6 +141,7 @@ class RegisterViewController: UIViewController {
     func authSuccessHandler(_ student : Student)
     {
         print("Auth was succesful")
+        self.studentToBeSaved = student
         student.save(successHandler: saveUserSucessHandler, failHandler: saveUserFailHandler)
     }
     func authFailHandler(_ errorMessage : String)
@@ -153,13 +154,26 @@ class RegisterViewController: UIViewController {
     func saveUserSucessHandler()
     {
         print("The new student was saved")
-        performSegue(withIdentifier: Segue.fromRegister_toLogin, sender: self)
-//        self.navigationController?.popViewController(animated: true)
+        var friendBook : FriendBook = FriendBook()
+        friendBook.uid = self.studentToBeSaved?.uid
+        friendBook.email = self.studentToBeSaved?.email
+        friendBook.save(successHandler: saveFriendBookSuccessHandler, failHandler: saveFriendBookFailHandler)
+ 
     }
     func saveUserFailHandler(_ errorMessage : String)
     {
         print("SaveFail -> \(errorMessage)")
         btnRegisterOutlet.shakeWith(txtEmail, txtPassword, txtAge, txtFirstName, txtLastName)
+    }
+    func saveFriendBookSuccessHandler()
+    {
+        print("The new friend book was created")
+        performSegue(withIdentifier: Segue.fromRegister_toLogin, sender: self)
+//        self.navigationController?.popViewController(animated: true)
+    }
+    func saveFriendBookFailHandler(error : String)
+    {
+        print(error)
     }
     
 }

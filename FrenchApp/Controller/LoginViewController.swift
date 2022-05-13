@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
         
         
         //Debug:
-        txtEmail.txtEntry.text = "matheus@me.com"
+        txtEmail.txtEntry.text = "tony2@me.com"
         txtPassword.txtEntry.text = "123456"
     }
     
@@ -98,6 +98,8 @@ class LoginViewController: UIViewController {
     {
         print("AuthenticationFail -> \(errorMessage)")
         btnLoginOutlet.shakeWith(txtEmail, txtPassword)
+        Toast.show(view: self, title: "Fail", message: "Wrong email and password do not match.")
+
     }
     
     //MARK: - Find action handler
@@ -105,14 +107,23 @@ class LoginViewController: UIViewController {
     {
         print("Login was sucessful")
         Contants.loggedUser = student
-        
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
-        show(homeViewController, sender: self)
+        FriendBook.find(uid: student.uid!, successHandler: findFriendBookSuccessHandler, failHandler: findFriendBookFailHandler)
+       
     }
     func findFailHandler(_ errorMessage : String)
     {
         print("FindFail -> \(errorMessage)")
+    }
+    func findFriendBookSuccessHandler(_ friendBook : FriendBook)
+    {
+        Contants.loggedFriendBook = friendBook
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+        show(homeViewController, sender: self)
+    }
+    func findFriendBookFailHandler(_ errorMessage : String)
+    {
+        print(errorMessage)
     }
     
 }

@@ -12,10 +12,13 @@ struct Contants
 {
     static var loggedUser : Student = Student()
     static var formEntryHeight : CGFloat = 100
-    static var formEntrySpacing : CGFloat = 10
+//    static var formEntrySpacing : CGFloat = 10
+    static var formEntrySpacing : CGFloat = 5
     static var navBarItemDimension : CGFloat = 80
     static var frenchBlue : String = "FrenchBlue"
     static var frenchRed : String = "FrenchRed"
+    static var heightTableViewCell : CGFloat = 80
+    static var loggedFriendBook : FriendBook = FriendBook()
     
 //    static var language : String = "english"
     

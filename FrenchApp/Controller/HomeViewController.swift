@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UINavbarDelegate {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         initialize()
-        self.title = "Home"
+        self.title = Strings_En.homeTitle
         titleDebugOutlet.isHidden = true
 
     }
