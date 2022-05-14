@@ -7,12 +7,20 @@
 
 import UIKit
 
-class UIFriendCell : UIView {
+class UIFriendCell : UITableViewCell {
 
+    var friendModel : Student? {
+        didSet{
+            self.configure()
+        }
+    }
+    
     //MARK: - Declaration of items
     private let lblName : UILabel =
     {
+        
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font.withSize(20)
         label.textAlignment = .left
         label.text = ""
@@ -23,6 +31,7 @@ class UIFriendCell : UIView {
     private let imgStreak : UILabel =
     {
         let img = UILabel()
+        img.translatesAutoresizingMaskIntoConstraints = false
         img.text = "🔥"
         img.textAlignment = .right
         img.isHidden = true
@@ -32,6 +41,7 @@ class UIFriendCell : UIView {
     private let lblStreakNumber : UILabel =
     {
         let number = UILabel()
+        number.translatesAutoresizingMaskIntoConstraints = false
         number.text = ""
         number.textAlignment = .right
         number.isHidden = true
@@ -63,11 +73,10 @@ class UIFriendCell : UIView {
         }
     }
     //MARK: - Required functions
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        initialize()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -103,5 +112,13 @@ class UIFriendCell : UIView {
         imgStreak.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         imgStreak.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.1).isActive = true
         
+    }
+    func configure()
+    {
+        guard let friendModel = friendModel else{return}
+        guard friendModel.getFullName() != "" else {return}
+        
+        self.name = friendModel.getFullName()
+        self.number = friendModel.conjugationStreak
     }
 }

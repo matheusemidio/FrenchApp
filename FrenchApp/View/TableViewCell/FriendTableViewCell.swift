@@ -28,18 +28,19 @@ class FriendTableViewCell: UITableViewCell {
 //        friendCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 200).isActive = true
 //        friendCell.heightAnchor.constraint(equalToConstant: Contants.heightTableViewCell).isActive = true
 //    }
-    func setCellContent(student : Student, number : Int)
+//    func setCellContent(student : Student, number : Int)
+    func setCellContent()
     {
 //        self.friendCell.name = name
 //        self.friendCell.number = number
 //        fixCell()
 //        applyContraints()
-        var nb = "10"
+        var nb = 10
         var name = "Matheus"
-        if(number > 0)
+        if(nb > 0)
         {
 //            lblNumber.text = String(number)
-            self.lblNumber.text = nb
+            self.lblNumber.text = "10"
             self.lblNumber.isHidden = false
             self.lblStreak.isHidden = false
         }
@@ -69,5 +70,6 @@ class FriendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+ 
 
 }

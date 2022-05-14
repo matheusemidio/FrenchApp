@@ -6,6 +6,8 @@
 //
 
 import UIKit
+private let identifier : String = "UIFriendCell"
+
 class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDelegate, UITableViewDataSource
 {
     //MARK: - Declaration of views
@@ -40,7 +42,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         tableView.delegate = self
         tableView.dataSource = self
     
-        self.tableView.register(FriendTableViewCell.self, forCellReuseIdentifier: FriendTableViewCell.identifier)
+        self.tableView.register(UIFriendCell.self, forCellReuseIdentifier: identifier)
     
     //        tvTransactionsOutlet.enableTapGestureRecognizer(target: self, action: #selector(tableViewTapped(tapGestureRecognizer:)))
     //
@@ -159,6 +161,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         show(homeViewController, sender: self)
         print("Home tapped")
     }
+    
     //MARK: - Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Contants.loggedFriendBook.listOfFriends.count
@@ -166,8 +169,14 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as! FriendTableViewCell
-//        cell.setCellContent(student: listOfFriends[0], number: 10)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UIFriendCell
+//        cell.setCellContent(student: self.friendBook!.listOfFriends[1], number: 10)
+//        cell.setCellContent()
+//        cell.name = "Matheus"
+//        cell.name = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
+//        cell.number = Contants.loggedFriendBook.listOfFriends[indexPath.row].conjugationStreak
+//        cell.textLabel?.text = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
+        cell.friendModel = Contants.loggedFriendBook.listOfFriends[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
