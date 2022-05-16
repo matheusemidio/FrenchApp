@@ -43,6 +43,12 @@ class UIEntryView: UIView {
             txtEntry.isSecureTextEntry = isSecure
         }
     }
+    public var enableInteraction : Bool = true{
+        didSet{
+//            txtEntry.isUserInteractionEnabled = enableInteraction
+            txtEntry.isEnabled = enableInteraction
+        }
+    }
     public var capitalizationType : UITextAutocapitalizationType = .words
     {
         didSet{

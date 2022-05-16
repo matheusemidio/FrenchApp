@@ -86,12 +86,12 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         
         txtTense.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         txtTense.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        txtTense.bottomAnchor.constraint(equalTo: btnConjugate.topAnchor, constant: -20).isActive = true
+        txtTense.bottomAnchor.constraint(equalTo: btnConjugate.topAnchor, constant: -100).isActive = true
         txtTense.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
         
         txtVerb.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         txtVerb.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        txtVerb.bottomAnchor.constraint(equalTo: txtTense.topAnchor, constant: -20).isActive = true
+        txtVerb.bottomAnchor.constraint(equalTo: txtTense.topAnchor, constant: Contants.formEntrySpacing).isActive = true
         txtVerb.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
     }
     
@@ -206,7 +206,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
             {
                 txtVerb.isHidden = false
             }
-            else if(self.tenseMode == "Search tense")
+            if(self.tenseMode == "Search tense")
             {
                 txtTense.isHidden = false
             }

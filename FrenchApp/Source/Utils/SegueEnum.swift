@@ -18,5 +18,6 @@ enum Segue
     static let ProfileViewController : String = "ProfileViewController"
     static let SocialViewController : String = "SocialViewController"
     static let PracticeViewController : String = "PracticeViewController"
+    static let CorrectionViewController : String = "CorrectionViewController."
 
 }

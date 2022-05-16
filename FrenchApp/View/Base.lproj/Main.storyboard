@@ -308,6 +308,21 @@
             </objects>
             <point key="canvasLocation" x="4268" y="808"/>
         </scene>
+        <!--Correction View Controller-->
+        <scene sceneID="MAQ-sP-QQY">
+            <objects>
+                <viewController storyboardIdentifier="CorrectionViewController." id="oMg-pb-wNh" customClass="CorrectionViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="usK-LK-mg6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="igu-Fa-ejJ"/>
+                        <color key="backgroundColor" name="FrenchBackground"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GU1-pv-n7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5354" y="808"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3fz-zJ-mgn"/>

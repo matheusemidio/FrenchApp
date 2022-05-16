@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 private let identifier : String = "UIFriendCell"
 
 class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDelegate, UITableViewDataSource
@@ -22,7 +23,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     var friendBook : FriendBook?
     var searchedEmail : String?
     var searchedStudent : Student?
-    
+    var testBook : FriendBook?
     
     //MARK: - Declaration of outlets
     @IBOutlet weak var tableView : UITableView!
@@ -34,6 +35,19 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         self.navigationItem.setHidesBackButton(true, animated: true)
         initialize()
         self.title = Strings_En.socialTitle
+        
+        
+//        FriendBook.find(uid: Contants.loggedUser.uid!, successHandler: { friendBook in
+//            self.testBook = friendBook
+//            DispatchQueue.main.async
+//            {
+//                self.tableView.reloadData()
+//            }
+//
+//        }, failHandler: { errorMessage in
+//            print(errorMessage)
+//        })
+  
     
     }
     //MARK: - Initialize and constraints
@@ -88,83 +102,21 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         refreshListOfFriends()
         fixButton()
         fixEntry()
-
     }
-    private func applyContraints()
+    override func viewDidAppear(_ animated: Bool)
     {
-  
-        txtSearch.translatesAutoresizingMaskIntoConstraints = false
-        txtSearch.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        txtSearch.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        txtSearch.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        txtSearch.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
-
-        btnSearch.translatesAutoresizingMaskIntoConstraints = false
-        btnSearch.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        btnSearch.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        btnSearch.topAnchor.constraint(equalTo: txtSearch.bottomAnchor, constant: 20).isActive = true
-        btnSearch.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: btnSearch.bottomAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: btnAdd.topAnchor).isActive = true
-        
-        btnAdd.translatesAutoresizingMaskIntoConstraints = false
-        btnAdd.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        btnAdd.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        btnAdd.bottomAnchor.constraint(equalTo: navbar.topAnchor, constant: -10).isActive = true
-        btnAdd.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        navbar.translatesAutoresizingMaskIntoConstraints = false
-        navbar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        navbar.heightAnchor.constraint(equalToConstant: Contants.navBarItemDimension).isActive = true
-        navbar.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-    
-        
-    //        friendCell.translatesAutoresizingMaskIntoConstraints = false
-    //        friendCell.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
-    //        friendCell.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-    //        friendCell.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
-    //        friendCell.heightAnchor.constraint(equalToConstant: Contants.heightTableViewCell).isActive = true
-    //
-    }
-    //MARK: - Navbar Action Handlers
-    func conjugateTapped()
-    {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
-        show(conjugateViewController, sender: self)
-    
-        print("Conjugate tapped")
-    }
-    func profileTapped()
-    {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
-        show(profileViewController, sender: self)
-        print("Profile tapped")
-    }
-    func socialTapped()
-    {
-    //        let main = UIStoryboard(name: "Main", bundle: nil)
-    //        let socialViewController = main.instantiateViewController(withIdentifier: Segue.SocialViewController)
-    //        show(socialViewController, sender: self)
-        print("Social tapped")
-    }
-    func homeTapped()
-    {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
-        show(homeViewController, sender: self)
-        print("Home tapped")
+        DispatchQueue.main.async
+        {
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: - Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Contants.loggedFriendBook.listOfFriends.count
+//        return self.testBook!.listOfFriends.count
+//        return self.friendBook.listOfFriends.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -176,7 +128,12 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
 //        cell.name = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
 //        cell.number = Contants.loggedFriendBook.listOfFriends[indexPath.row].conjugationStreak
 //        cell.textLabel?.text = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
+        
         cell.friendModel = Contants.loggedFriendBook.listOfFriends[indexPath.row]
+//        cell.friendModel = self.testBook!.listOfFriends[indexPath.row]
+//        cell.friendModel = self.friendBook?.listOfFriends[indexPath.row]
+
+
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -200,7 +157,20 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     }
     func findFriendBookSuccessHandler(_ friendBook : FriendBook)
     {
+//        for friend in friendBook.listOfFriends
+//        {
+//            if(friend.uid != nil)
+//            {
+////                Contants.loggedFriendBook.listOfFriends.append(friend)
+//                self.friendBook?.listOfFriends.append(friend)
+//            }
+//        }
         self.friendBook = friendBook
+        DispatchQueue.main.async
+        {
+            self.tableView.reloadData()
+        }
+        
     }
     func findFriendBookFailHandler(error : String)
     {
@@ -280,5 +250,78 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
 //    @objc func textFieldDidChange(_ textField: UITextField) {
 //
 //    }
+    //MARK: - Constraints
+    private func applyContraints()
+    {
+  
+        txtSearch.translatesAutoresizingMaskIntoConstraints = false
+        txtSearch.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        txtSearch.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        txtSearch.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        txtSearch.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
+
+        btnSearch.translatesAutoresizingMaskIntoConstraints = false
+        btnSearch.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        btnSearch.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        btnSearch.topAnchor.constraint(equalTo: txtSearch.bottomAnchor, constant: 20).isActive = true
+        btnSearch.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: btnSearch.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: btnAdd.topAnchor).isActive = true
+        
+        btnAdd.translatesAutoresizingMaskIntoConstraints = false
+        btnAdd.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        btnAdd.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        btnAdd.bottomAnchor.constraint(equalTo: navbar.topAnchor, constant: -10).isActive = true
+        btnAdd.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        navbar.translatesAutoresizingMaskIntoConstraints = false
+        navbar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        navbar.heightAnchor.constraint(equalToConstant: Contants.navBarItemDimension).isActive = true
+        navbar.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
+    
+        
+    //        friendCell.translatesAutoresizingMaskIntoConstraints = false
+    //        friendCell.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
+    //        friendCell.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
+    //        friendCell.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
+    //        friendCell.heightAnchor.constraint(equalToConstant: Contants.heightTableViewCell).isActive = true
+    //
+    }
+    //MARK: - Navbar Action Handlers
+    func conjugateTapped()
+    {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
+        show(conjugateViewController, sender: self)
+    
+        print("Conjugate tapped")
+    }
+    func profileTapped()
+    {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
+        show(profileViewController, sender: self)
+        print("Profile tapped")
+    }
+    func socialTapped()
+    {
+    //        let main = UIStoryboard(name: "Main", bundle: nil)
+    //        let socialViewController = main.instantiateViewController(withIdentifier: Segue.SocialViewController)
+    //        show(socialViewController, sender: self)
+        print("Social tapped")
+    }
+    func homeTapped()
+    {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+        show(homeViewController, sender: self)
+        print("Home tapped")
+    }
+    
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UIFriendCell : UITableViewCell {
+class TestCell : UIView {
 
     var friendModel : Student? {
         didSet{
@@ -73,10 +73,11 @@ class UIFriendCell : UITableViewCell {
         }
     }
     //MARK: - Required functions
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -118,7 +119,9 @@ class UIFriendCell : UITableViewCell {
         guard let friendModel = friendModel else{return}
         guard friendModel.getFullName() != "" else {return}
         
-        self.name = friendModel.getFullName()
-        self.number = friendModel.conjugationStreak
+//        self.lblName.text = "Matheus"
+//        self.lblStreakNumber.text = "10"
+        self.lblName.text = friendModel.getFullName()
+        self.lblStreakNumber.text = String(friendModel.conjugationStreak)
     }
 }

@@ -39,10 +39,12 @@
 		C9AD4F44282ACB79000CA492 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F43282ACB79000CA492 /* ProfileViewController.swift */; };
 		C9AD4F46282D2A22000CA492 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F45282D2A21000CA492 /* PracticeViewController.swift */; };
 		C9AD4F4A282D66CE000CA492 /* UIFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F49282D66CE000CA492 /* UIFriendCell.swift */; };
-		C9AD4F4C282E87EB000CA492 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F4B282E87EB000CA492 /* FriendsTableViewCell.swift */; };
 		C9AD4F50282EA9A0000CA492 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F4E282EA9A0000CA492 /* FriendTableViewCell.swift */; };
 		C9AD4F51282EA9A0000CA492 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AD4F4F282EA9A0000CA492 /* FriendTableViewCell.xib */; };
 		C9AD4F53282EEB33000CA492 /* FriendBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F52282EEB33000CA492 /* FriendBook.swift */; };
+		C9AD4F55283000FE000CA492 /* UIProgressTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */; };
+		C9AD4F572830354D000CA492 /* CorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F562830354D000CA492 /* CorrectionViewController.swift */; };
+		C9AD4F5928329ED3000CA492 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F5828329ED3000CA492 /* TestCell.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +86,12 @@
 		C9AD4F43282ACB79000CA492 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C9AD4F45282D2A21000CA492 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		C9AD4F49282D66CE000CA492 /* UIFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFriendCell.swift; sourceTree = "<group>"; };
-		C9AD4F4B282E87EB000CA492 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		C9AD4F4E282EA9A0000CA492 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		C9AD4F4F282EA9A0000CA492 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		C9AD4F52282EEB33000CA492 /* FriendBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendBook.swift; sourceTree = "<group>"; };
+		C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressTimerView.swift; sourceTree = "<group>"; };
+		C9AD4F562830354D000CA492 /* CorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectionViewController.swift; sourceTree = "<group>"; };
+		C9AD4F5828329ED3000CA492 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 				C9AD4F41282ACB6D000CA492 /* SocialViewController.swift */,
 				C9AD4F43282ACB79000CA492 /* ProfileViewController.swift */,
 				C9AD4F45282D2A21000CA492 /* PracticeViewController.swift */,
+				C9AD4F562830354D000CA492 /* CorrectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,7 +259,8 @@
 				C9AD4F3128255654000CA492 /* UiEntryView.swift */,
 				C9AD4F3B282A8BDA000CA492 /* UINavbar.swift */,
 				C9AD4F3D282A8C64000CA492 /* UINavbarItem.swift */,
-				C9AD4F49282D66CE000CA492 /* UIFriendCell.swift */,
+				C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */,
+				C9AD4F5828329ED3000CA492 /* TestCell.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -262,7 +268,7 @@
 		C9AD4F4D282EA943000CA492 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C9AD4F4B282E87EB000CA492 /* FriendsTableViewCell.swift */,
+				C9AD4F49282D66CE000CA492 /* UIFriendCell.swift */,
 				C9AD4F4E282EA9A0000CA492 /* FriendTableViewCell.swift */,
 				C9AD4F4F282EA9A0000CA492 /* FriendTableViewCell.xib */,
 			);
@@ -395,17 +401,20 @@
 				C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */,
 				C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */,
 				C9AD4F53282EEB33000CA492 /* FriendBook.swift in Sources */,
+				C9AD4F55283000FE000CA492 /* UIProgressTimerView.swift in Sources */,
 				C97292342824869100FE6CAC /* LoginViewController.swift in Sources */,
 				C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */,
 				C9AD4F44282ACB79000CA492 /* ProfileViewController.swift in Sources */,
 				C97292422824887900FE6CAC /* Dialog.swift in Sources */,
 				C97292382824870E00FE6CAC /* Student.swift in Sources */,
 				C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */,
+				C9AD4F572830354D000CA492 /* CorrectionViewController.swift in Sources */,
 				C9AD4F3228255654000CA492 /* UiEntryView.swift in Sources */,
 				C9AD4F34282957A1000CA492 /* DictionaryEncDec.swift in Sources */,
 				C9AD4F42282ACB6D000CA492 /* SocialViewController.swift in Sources */,
 				C94943FD28208DEA006D81E3 /* ViewController.swift in Sources */,
 				C97292432824887900FE6CAC /* Toast.swift in Sources */,
+				C9AD4F5928329ED3000CA492 /* TestCell.swift in Sources */,
 				C9AD4F3A28299194000CA492 /* String_isValidEmail.swift in Sources */,
 				C9AD4F4A282D66CE000CA492 /* UIFriendCell.swift in Sources */,
 				C9AD4F2D28254422000CA492 /* Database.swift in Sources */,
@@ -416,7 +425,6 @@
 				C9AD4F2C28254422000CA492 /* Authentication.swift in Sources */,
 				C9AD4F50282EA9A0000CA492 /* FriendTableViewCell.swift in Sources */,
 				C9AD4F40282ACB60000CA492 /* ConjugateViewController.swift in Sources */,
-				C9AD4F4C282E87EB000CA492 /* FriendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

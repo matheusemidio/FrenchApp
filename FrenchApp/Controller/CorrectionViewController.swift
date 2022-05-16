@@ -1,13 +1,13 @@
 //
-//  PracticeViewController.swift
+//  CorrectionViewController.swift
 //  FrenchApp
 //
-//  Created by Matheus Cadena on 2022-05-12.
+//  Created by Matheus Cadena on 2022-05-14.
 //
 
 import UIKit
 
-class PracticeViewController: UIViewController {
+class CorrectionViewController: UIViewController {
 
     //MARK: - Declaration of views
     public var txtSingFirst : UIEntryView = UIEntryView()
@@ -16,45 +16,41 @@ class PracticeViewController: UIViewController {
     public var txtPlurFirst : UIEntryView = UIEntryView()
     public var txtPlurSecond : UIEntryView = UIEntryView()
     public var txtPlurThird : UIEntryView = UIEntryView()
-    public var btnSubmit : UIButton = UIButton()
-    public var progressView : UIProgressTimerView = UIProgressTimerView()
+    public var btnReturn : UIButton = UIButton()
     public var lblVerb : UILabel = UILabel()
     public var lblTense : UILabel = UILabel()
     public var lblSelectedVerb : UILabel = UILabel()
     public var lblSelectedTense : UILabel = UILabel()
     
     //MARK: - Declaration of variables
-    var timer : Timer = Timer()
+
     //MARK: - Declaration of outlets
     
-    //MARK: - View load and initialization of entries
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
         self.navigationItem.setHidesBackButton(true, animated: true)
-        self.title = Strings_En.practiceTitle
-        // Do any additional setup after loading the view.
+        self.title = Strings_En.correctionTitle
     }
-    private func setPlaceholders()
+    private func checkCorrection()
     {
-        txtSingFirst.title = Strings_En.singFirst
-        txtSingSecond.title = Strings_En.singSecond
-        txtSingThird.title = Strings_En.singThird
-        txtPlurFirst.title = Strings_En.plurFirst
-        txtPlurSecond.title = Strings_En.plurSecond
-        txtPlurThird.title = Strings_En.plurThird
-        
+//        txtSingFirst.title = Strings_En.singFirst
+//        txtSingSecond.title = Strings_En.singSecond
+//        txtSingThird.title = Strings_En.singThird
+//        txtPlurFirst.title = Strings_En.plurFirst
+//        txtPlurSecond.title = Strings_En.plurSecond
+//        txtPlurThird.title = Strings_En.plurThird
     }
     private func fixButton()
     {
-        btnSubmit.setTitle("Submit", for: .normal)
+        btnReturn.setTitle("Return", for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
-        btnSubmit.backgroundColor = UIColor(named: Contants.frenchBlue)
-        btnSubmit.titleLabel?.font =  UIFont(name: "...", size: 30)
+        btnReturn.backgroundColor = UIColor(named: Contants.frenchBlue)
+        btnReturn.titleLabel?.font =  UIFont(name: "...", size: 30)
         
-        let tapSubmit = UITapGestureRecognizer(target: self, action: #selector(btnSubmitTouchUp))
-        self.btnSubmit.addGestureRecognizer(tapSubmit)
-        self.btnSubmit.isUserInteractionEnabled = true
+        let tapReturn = UITapGestureRecognizer(target: self, action: #selector(btnReturnTouchUp))
+        self.btnReturn.addGestureRecognizer(tapReturn)
+        self.btnReturn.isUserInteractionEnabled = true
     }
     private func fixLabels()
     {
@@ -78,28 +74,25 @@ class PracticeViewController: UIViewController {
         lblSelectedTense.textAlignment = .center
         lblSelectedTense.text = "Present"
     }
-    func startTimer()
+    private func fixEntries()
     {
-        self.progressView.setProgress = 0.0
-        var progress : Float = 0.0
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            progress += 0.0001
-            self.progressView.setProgress = progress
-            
-        })
-        
-        
-    }
+        self.txtPlurFirst.enableInteraction = false
+        self.txtSingSecond.enableInteraction = false
+        self.txtSingThird.enableInteraction = false
+        self.txtPlurFirst.enableInteraction = false
+        self.txtPlurSecond.enableInteraction = false
+        self.txtPlurThird.enableInteraction = false
 
+    }
     //MARK: - Initialize and constraints
     private func initialize()
     {
-        self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnSubmit, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense, progressView)
+        self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnReturn, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense)
         fixButton()
-        setPlaceholders()
+        checkCorrection()
         applyContraints()
         fixLabels()
+        fixEntries()
     }
     private func applyContraints()
     {
@@ -109,8 +102,7 @@ class PracticeViewController: UIViewController {
         txtPlurFirst.translatesAutoresizingMaskIntoConstraints = false
         txtPlurSecond.translatesAutoresizingMaskIntoConstraints = false
         txtPlurThird.translatesAutoresizingMaskIntoConstraints = false
-        btnSubmit.translatesAutoresizingMaskIntoConstraints = false
-        progressView.translatesAutoresizingMaskIntoConstraints = false
+        btnReturn.translatesAutoresizingMaskIntoConstraints = false
         lblVerb.translatesAutoresizingMaskIntoConstraints = false
         lblTense.translatesAutoresizingMaskIntoConstraints = false
         lblSelectedVerb.translatesAutoresizingMaskIntoConstraints = false
@@ -166,62 +158,50 @@ class PracticeViewController: UIViewController {
         txtPlurThird.topAnchor.constraint(equalTo: txtPlurSecond.bottomAnchor, constant: Contants.formEntrySpacing).isActive = true
         txtPlurThird.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
 
-        progressView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        progressView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        progressView.topAnchor.constraint(equalTo: txtPlurThird.bottomAnchor).isActive = true
-        progressView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
-        btnSubmit.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        btnSubmit.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-//        btnSubmit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        btnSubmit.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 5).isActive = true
-        btnSubmit.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        btnReturn.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        btnReturn.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        btnReturn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        btnReturn.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
     
     //MARK: - Navbar Action Handlers
-    @objc func btnSubmitTouchUp()
+    @objc func btnReturnTouchUp()
     {
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
-//        show(conjugateViewController, sender: self)
-        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
-        {
-            btnSubmit.shakeWith(txtSingFirst)
-            return
-        }
-        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
-        {
-            btnSubmit.shakeWith(txtSingSecond)
-            return
-        }
-        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
-        {
-            btnSubmit.shakeWith(txtSingThird)
-            return
-        }
-        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
-        {
-            btnSubmit.shakeWith(txtPlurFirst)
-            return
-        }
-        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
-        {
-            btnSubmit.shakeWith(txtPlurSecond)
-            return
-        }
-        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
-        {
-            btnSubmit.shakeWith(txtPlurThird)
-            return
-        }
-        
-        //Pass the answers, verb and tense selected
         let main = UIStoryboard(name: "Main", bundle: nil)
-        let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
-        show(correctionViewController, sender: self)
-        print("Submit tapped")
+        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
+        show(conjugateViewController, sender: self)
+//        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
+//        {
+//            btnReturn.shakeWith(txtSingFirst)
+//            return
+//        }
+//        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
+//        {
+//            btnReturn.shakeWith(txtSingSecond)
+//            return
+//        }
+//        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
+//        {
+//            btnReturn.shakeWith(txtSingThird)
+//            return
+//        }
+//        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
+//        {
+//            btnReturn.shakeWith(txtPlurFirst)
+//            return
+//        }
+//        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
+//        {
+//            btnReturn.shakeWith(txtPlurSecond)
+//            return
+//        }
+//        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
+//        {
+//            btnReturn.shakeWith(txtPlurThird)
+//            return
+//        }
+        print("Return tapped")
     }
-    
 
 }

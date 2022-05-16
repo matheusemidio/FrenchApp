@@ -33,6 +33,7 @@ enum Strings_En
     static let socialTitle : String = "Social"
     static let practiceTitle : String = "Practice"
     static let profileTitle : String = "Profile"
+    static let correctionTitle : String = "Correction"
     static let pickerRandomVerb : String = "Random verb"
     static let pickerSearchVerb : String = "Search verb"
     static let pickerRandomTense : String = "Random tense"

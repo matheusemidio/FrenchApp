@@ -116,7 +116,13 @@ class LoginViewController: UIViewController {
     }
     func findFriendBookSuccessHandler(_ friendBook : FriendBook)
     {
-        Contants.loggedFriendBook = friendBook
+        for friend in friendBook.listOfFriends
+        {
+            if(friend.uid != nil)
+            {
+                Contants.loggedFriendBook.listOfFriends.append(friend)
+            }
+        }
         let main = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
         show(homeViewController, sender: self)

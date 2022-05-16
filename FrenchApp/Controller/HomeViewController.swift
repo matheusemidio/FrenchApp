@@ -11,6 +11,7 @@ class HomeViewController: UIViewController, UINavbarDelegate {
 
     //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
+    public var test : TestCell = TestCell()
     
     //MARK: - Declaration of variables
 
@@ -26,16 +27,27 @@ class HomeViewController: UIViewController, UINavbarDelegate {
         titleDebugOutlet.isHidden = true
 
     }
-    
+    public func fixTest()
+    {
+        test.name = "Matheus"
+        test.number = 10
+    }
     //MARK: - Initialize and constraints
     private func initialize()
     {
-        self.view.addSubview(navbar)
+        self.view.addSubviews(navbar, test)
         self.navbar.delegate = self
         applyContraints()
+        fixTest()
     }
+    
     private func applyContraints()
     {
+        test.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        test.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        test.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        test.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
+        
         navbar.translatesAutoresizingMaskIntoConstraints = false
         navbar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
