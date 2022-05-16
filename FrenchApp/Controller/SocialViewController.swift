@@ -102,6 +102,8 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         refreshListOfFriends()
         fixButton()
         fixEntry()
+        
+        
     }
     override func viewDidAppear(_ animated: Bool)
     {
@@ -113,7 +115,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     
     //MARK: - Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Contants.loggedFriendBook.listOfFriends.count
+        return (Contants.loggedFriendBook.listOfFriends.count - 1)
 //        return self.testBook!.listOfFriends.count
 //        return self.friendBook.listOfFriends.count
 
@@ -129,7 +131,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
 //        cell.number = Contants.loggedFriendBook.listOfFriends[indexPath.row].conjugationStreak
 //        cell.textLabel?.text = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
         
-        cell.friendModel = Contants.loggedFriendBook.listOfFriends[indexPath.row]
+        cell.friendModel = Contants.loggedFriendBook.listOfFriends[(indexPath.row + 1)]
 //        cell.friendModel = self.testBook!.listOfFriends[indexPath.row]
 //        cell.friendModel = self.friendBook?.listOfFriends[indexPath.row]
 

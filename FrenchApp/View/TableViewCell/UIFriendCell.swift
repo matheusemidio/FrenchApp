@@ -75,6 +75,8 @@ class UIFriendCell : UITableViewCell {
     //MARK: - Required functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -84,7 +86,7 @@ class UIFriendCell : UITableViewCell {
     //MARK: - Initializers
     private func initialize()
     {
-        self.translatesAutoresizingMaskIntoConstraints = true
+        //self.translatesAutoresizingMaskIntoConstraints = true
         self.addSubviews(lblName, imgStreak, lblStreakNumber)
 
         self.backgroundColor = .white.withAlphaComponent(0.50)
@@ -121,6 +123,6 @@ class UIFriendCell : UITableViewCell {
 //        self.lblName.text = "Matheus"
 //        self.lblStreakNumber.text = "10"
         self.lblName.text = friendModel.getFullName()
-        self.lblStreakNumber.text = String(friendModel.conjugationStreak)
+        self.number = 10
     }
 }

@@ -80,14 +80,22 @@ class PracticeViewController: UIViewController {
     }
     func startTimer()
     {
-        self.progressView.setProgress = 0.0
-        var progress : Float = 0.0
+        self.progressView.setProgress = 1
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            progress += 0.0001
-            self.progressView.setProgress = progress
-            
+            DispatchQueue.main.async
+            {
+                self.progressView.setProgress -= 0.025
+            }
+            if self.progressView.progressBar.progress <= 0
+            {
+                timer.invalidate()
+                Toast.show(view: self, title: "Finish", message: "Your time is up.")
+                //Call function to submit programatically
+
+            }
         })
+        
         
         
     }
@@ -100,6 +108,7 @@ class PracticeViewController: UIViewController {
         setPlaceholders()
         applyContraints()
         fixLabels()
+        startTimer()
     }
     private func applyContraints()
     {
@@ -185,36 +194,37 @@ class PracticeViewController: UIViewController {
 //        let main = UIStoryboard(name: "Main", bundle: nil)
 //        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
 //        show(conjugateViewController, sender: self)
-        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
-        {
-            btnSubmit.shakeWith(txtSingFirst)
-            return
-        }
-        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
-        {
-            btnSubmit.shakeWith(txtSingSecond)
-            return
-        }
-        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
-        {
-            btnSubmit.shakeWith(txtSingThird)
-            return
-        }
-        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
-        {
-            btnSubmit.shakeWith(txtPlurFirst)
-            return
-        }
-        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
-        {
-            btnSubmit.shakeWith(txtPlurSecond)
-            return
-        }
-        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
-        {
-            btnSubmit.shakeWith(txtPlurThird)
-            return
-        }
+        
+//        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
+//        {
+//            btnSubmit.shakeWith(txtSingFirst)
+//            return
+//        }
+//        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
+//        {
+//            btnSubmit.shakeWith(txtSingSecond)
+//            return
+//        }
+//        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
+//        {
+//            btnSubmit.shakeWith(txtSingThird)
+//            return
+//        }
+//        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
+//        {
+//            btnSubmit.shakeWith(txtPlurFirst)
+//            return
+//        }
+//        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
+//        {
+//            btnSubmit.shakeWith(txtPlurSecond)
+//            return
+//        }
+//        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
+//        {
+//            btnSubmit.shakeWith(txtPlurThird)
+//            return
+//        }
         
         //Pass the answers, verb and tense selected
         let main = UIStoryboard(name: "Main", bundle: nil)

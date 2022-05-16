@@ -9,12 +9,15 @@ import UIKit
 
 class UIProgressTimerView: UIView {
 
-    private var progressBar : UIProgressView =
+    public var progressBar : UIProgressView =
     {
         let bar : UIProgressView = UIProgressView(progressViewStyle: .bar)
         bar.translatesAutoresizingMaskIntoConstraints = false
         bar.trackTintColor = .red
-        bar.tintColor = .blue
+        bar.tintColor = .green
+        bar.setProgress(1.0, animated: false)
+        
+        
 //        bar.progress = 0.0
 //        bar.setProgress(100, animated: true)
 
