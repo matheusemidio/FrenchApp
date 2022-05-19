@@ -85,14 +85,15 @@ enum Strings_En
     static let pickerSearchVerb : String = "Search verb"
     static let pickerRandomTense : String = "Random tense"
     static let pickerSearchTense : String = "Search tense"
-    static let pickerPresent : [String] = ["Present", "present"]
+    static let pickerPresent : String = "Present"
     static let pickerPasseSimple : String = "Passe simple"
-    static let pickerImparfait : String = "imparfait"
+    static let pickerImparfait : String = "Imparfait"
     static let pickerPasseCompose : String = "Passe compose"
     static let pickerFuturSimple : String = "Futur simple"
     static let pickerPasseAnterieur : String = "Passe anterieur"
     static let pickerPlusQueParfait : String = "Plus que parfait"
     static let pickerFuturAnterieur : String = "Futur anterieur"
+    static let pickerTensesDict : [String : String] = ["Present" : "present", "Passe simple" : "passeSimple", "Imparfait" : "imparfait", "Passe compose" : "passeCompose", "Futur simple" : "futurSimple", "Passe anterieur" :  "plusQueParfait", "Plus que parfait" : "plusQueParfait",  "Futur anterieur" : "futurAnterieur"]
 
 
     

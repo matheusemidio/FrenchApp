@@ -26,8 +26,10 @@ class PracticeViewController: UIViewController {
 
     
     //MARK: - Declaration of variables
-    var verb = Strings_En.hardcodedPracticeVerb
-    var tense = Strings_En.hardcodedPracticeTense
+    var verbData = Strings_En.hardcodedPracticeVerb
+    var tenseData = Strings_En.hardcodedPracticeTense
+//    var verbData : String?
+//    var tenseData : String?
     
     //MARK: - Declaration of outlets
     
@@ -83,12 +85,12 @@ class PracticeViewController: UIViewController {
         lblSelectedVerb.font = UIFont.systemFont(ofSize: 20)
         lblSelectedVerb.textColor = .black
         lblSelectedVerb.textAlignment = .center
-        lblSelectedVerb.text = self.verb
+        lblSelectedVerb.text = Contants.verbPractice
         
         lblSelectedTense.font = UIFont.systemFont(ofSize: 20)
         lblSelectedTense.textColor = .black
         lblSelectedTense.textAlignment = .center
-        lblSelectedTense.text = self.tense
+        lblSelectedTense.text = Contants.tensePractice
     }
     //MARK: - Timer function for progressView
     func startTimer()
@@ -227,7 +229,7 @@ class PracticeViewController: UIViewController {
         let plurSecond = txtPlurSecond.txtEntry.text != nil ? txtPlurSecond.txtEntry.text : ""
         let plurThird = txtPlurThird.txtEntry.text != nil ? txtPlurThird.txtEntry.text : ""
         
-        let verb : Verb = Verb(tense: self.tense, firstSing: singFirst!, secondSing: singSecond!, thirdSing: singThird!, firstPlur: plurFirst!, secondPlur: plurSecond!, thirdPlur: plurThird!)
+        let verb : Verb = Verb(tense: Contants.tensePractice, firstSing: singFirst!, secondSing: singSecond!, thirdSing: singThird!, firstPlur: plurFirst!, secondPlur: plurSecond!, thirdPlur: plurThird!)
     }
     
     func goToNextScreen()

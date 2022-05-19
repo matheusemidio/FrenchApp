@@ -19,6 +19,9 @@ struct Contants
     static var frenchRed : String = "FrenchRed"
     static var heightTableViewCell : CGFloat = 80
     static var loggedFriendBook : FriendBook = FriendBook()
+    static var verbPractice : String = ""
+    static var tensePractice : String = ""
+
     
 //    static var language : String = "english"
     

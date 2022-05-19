@@ -12,20 +12,25 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
     public var txtVerb : UIEntryView = UIEntryView()
-    public var txtTense : UIEntryView = UIEntryView()
+//    public var txtTense : UIEntryView = UIEntryView()
     public var btnConjugate : UIButton = UIButton()
 
     //MARK: - Declaration of variables
     var pickerData : [[String]] = [[Strings_En.pickerRandomVerb, Strings_En.pickerSearchVerb],
-                                   [Strings_En.pickerRandomTense, Strings_En.pickerSearchTense]]
+                                   [Strings_En.pickerRandomTense, Strings_En.pickerPresent, Strings_En.pickerPasseSimple, Strings_En.pickerImparfait, Strings_En.pickerPasseCompose, Strings_En.pickerFuturSimple, Strings_En.pickerPasseAnterieur, Strings_En.pickerPlusQueParfait, Strings_En.pickerFuturAnterieur]]
+
+    
     var verbMode : String = Strings_En.pickerRandomVerb
     var tenseMode : String = Strings_En.pickerRandomTense
     var verbSelection : [Int] = []
     var tenseSelection : [Int] = []
     var alreadyClicked : Bool = false
+    var verbToBeConjugated : String = ""
+    var tenseToBeConjugated : String = ""
     
     //MARK: - Declaration of outlets
     @IBOutlet weak var pickerViewOutlet: UIPickerView!
+    
     
     //MARK: - View load
     override func viewDidLoad() {
@@ -42,9 +47,9 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     private func setPlaceholders()
     {
         txtVerb.title = Strings_En.verbSearch
-        txtTense.title = Strings_En.tenseSearch
+//        txtTense.title = Strings_En.tenseSearch
         txtVerb.isHidden = true
-        txtTense.isHidden = true
+//        txtTense.isHidden = true
 
     }
     private func fixButton()
@@ -64,7 +69,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     {
         setPlaceholders()
         fixButton()
-        self.view.addSubviews(navbar, txtVerb, txtTense, btnConjugate)
+        self.view.addSubviews(navbar, txtVerb, btnConjugate)
         self.navbar.delegate = self
         applyContraints()
         self.alreadyClicked = false
@@ -74,7 +79,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     private func applyContraints()
     {
         btnConjugate.translatesAutoresizingMaskIntoConstraints = false
-        txtTense.translatesAutoresizingMaskIntoConstraints = false
+//        txtTense.translatesAutoresizingMaskIntoConstraints = false
         txtVerb.translatesAutoresizingMaskIntoConstraints = false
         navbar.translatesAutoresizingMaskIntoConstraints = false
         
@@ -88,14 +93,14 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         btnConjugate.bottomAnchor.constraint(equalTo: navbar.topAnchor, constant: -20).isActive = true
         btnConjugate.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        txtTense.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        txtTense.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        txtTense.bottomAnchor.constraint(equalTo: btnConjugate.topAnchor, constant: -100).isActive = true
-        txtTense.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
+//        txtTense.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+//        txtTense.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+//        txtTense.bottomAnchor.constraint(equalTo: btnConjugate.topAnchor, constant: -100).isActive = true
+//        txtTense.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
         
         txtVerb.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         txtVerb.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        txtVerb.bottomAnchor.constraint(equalTo: txtTense.topAnchor, constant: Contants.formEntrySpacing).isActive = true
+        txtVerb.bottomAnchor.constraint(equalTo: btnConjugate.topAnchor, constant: -80).isActive = true
         txtVerb.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
     }
     
@@ -139,7 +144,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     
     //The numbers of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return pickerData[component].count
     }
 
     //Data for the rows
@@ -150,15 +155,29 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     //Get the selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        if(pickerData[component][row] == Strings_En.pickerRandomTense || pickerData[component][row] == Strings_En.pickerSearchTense)
+        switch(component)
         {
-            self.tenseMode = pickerData[component][row]
-            self.tenseSelection = [component, row]
-        }else if(pickerData[component][row] == Strings_En.pickerRandomVerb || pickerData[component][row] == Strings_En.pickerSearchVerb)
-        {
+        case 0:
             self.verbMode = pickerData[component][row]
             self.verbSelection = [component, row]
+            break
+        case 1:
+            self.tenseMode = pickerData[component][row]
+            self.tenseSelection = [component, row]
+            break
+        default:
+            self.tenseMode = ""
+            break
         }
+//        if(pickerData[component][row] == Strings_En.pickerRandomTense || pickerData[component][row] == Strings_En.pickerSearchTense)
+//        {
+//            self.tenseMode = pickerData[component][row]
+//            self.tenseSelection = [component, row]
+//        }else if(pickerData[component][row] == Strings_En.pickerRandomVerb || pickerData[component][row] == Strings_En.pickerSearchVerb)
+//        {
+//            self.verbMode = pickerData[component][row]
+//            self.verbSelection = [component, row]
+//        }
 
         print("\nVerb mode ->" + self.verbMode)
         print("Tense mode ->" + self.tenseMode)
@@ -169,51 +188,99 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
-        if(txtVerb.isHidden == true && txtTense.isHidden == true)
+        
+//        let practiceViewControlerData = PracticeViewController()
+        if(self.tenseMode == Strings_En.pickerRandomTense)
         {
+            //Perform the random choice
+            let n = Int.random(in: 1...8)
+            self.tenseToBeConjugated = pickerData[1][n]
+        }
+        else
+        {
+            self.tenseToBeConjugated = self.tenseMode
+        }
+        Contants.tensePractice = self.tenseToBeConjugated
+//        practiceViewControlerData.tenseData = self.tenseToBeConjugated
+        
+        if(txtVerb.isHidden == true)
+        {
+            
             if(self.verbMode == Strings_En.pickerSearchVerb)
             {
                 txtVerb.isHidden = false
             }
-            if(self.tenseMode == Strings_En.pickerSearchTense)
+            else if(self.verbMode == Strings_En.pickerRandomVerb)
             {
-                txtTense.isHidden = false
-            }
-            else if((self.verbMode == Strings_En.pickerRandomVerb) && (self.tenseMode == Strings_En.pickerRandomTense))
-            {
-//                Toast.show(view: self, title: "Debug", message: "Random -> Ready to perform the segue.")
-                //Before performing the Segue, get the API verb and tense for the next screen
+                //Get random verb and perform segue
                 show(practiceViewController, sender: self)
-                
             }
+           
             self.alreadyClicked = true
             return
         }
-        else if((txtVerb.isHidden == false || txtTense.isHidden == false) && self.alreadyClicked == true)
+        else if(txtVerb.isHidden == false && self.alreadyClicked == true)
         {
-            if(txtVerb.isHidden == false)
+            guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else
             {
-                guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else
-                {
-                    btnConjugate.shakeWith(txtVerb)
-                    return
-                }
+                btnConjugate.shakeWith(txtVerb)
+                return
             }
-            else if(txtTense.isHidden == false)
-            {
-                guard let tenseSearched = txtTense.txtEntry.text, tenseSearched != "" else
-                {
-                    btnConjugate.shakeWith(txtTense)
-                    return
-                }
-            }
-            
-//            Toast.show(view: self, title: "Debug", message: "Second click -> Ready to perform the segue")
+            //Toast.show(view: self, title: "Debug", message: "Second click -> Ready to perform the segue")
             //Before performing the Segue, get the API verb and tense for the next screen
             //Also, check and verify if the searched was valid
+//            practiceViewControlerData.verbData = verbSearched
+            Contants.verbPractice = verbSearched
             show(practiceViewController, sender: self)
             
         }
+
+        
+//        if(txtVerb.isHidden == true && txtTense.isHidden == true)
+//        {
+//            if(self.verbMode == Strings_En.pickerSearchVerb)
+//            {
+//                txtVerb.isHidden = false
+//            }
+//            if(self.tenseMode == Strings_En.pickerSearchTense)
+//            {
+//                txtTense.isHidden = false
+//            }
+//            else if((self.verbMode == Strings_En.pickerRandomVerb) && (self.tenseMode == Strings_En.pickerRandomTense))
+//            {
+////                Toast.show(view: self, title: "Debug", message: "Random -> Ready to perform the segue.")
+//                //Before performing the Segue, get the API verb and tense for the next screen
+//                show(practiceViewController, sender: self)
+//                
+//            }
+//            self.alreadyClicked = true
+//            return
+//        }
+//        else if((txtVerb.isHidden == false || txtTense.isHidden == false) && self.alreadyClicked == true)
+//        {
+//            if(txtVerb.isHidden == false)
+//            {
+//                guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else
+//                {
+//                    btnConjugate.shakeWith(txtVerb)
+//                    return
+//                }
+//            }
+//            else if(txtTense.isHidden == false)
+//            {
+//                guard let tenseSearched = txtTense.txtEntry.text, tenseSearched != "" else
+//                {
+//                    btnConjugate.shakeWith(txtTense)
+//                    return
+//                }
+//            }
+//
+////            Toast.show(view: self, title: "Debug", message: "Second click -> Ready to perform the segue")
+//            //Before performing the Segue, get the API verb and tense for the next screen
+//            //Also, check and verify if the searched was valid
+//            show(practiceViewController, sender: self)
+//
+//        }
         
     }
 
