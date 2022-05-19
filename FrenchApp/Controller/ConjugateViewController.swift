@@ -14,6 +14,8 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     public var txtVerb : UIEntryView = UIEntryView()
 //    public var txtTense : UIEntryView = UIEntryView()
     public var btnConjugate : UIButton = UIButton()
+    public var timer : Timer = Timer()
+
 
     //MARK: - Declaration of variables
     var pickerData : [[String]] = [[Strings_En.pickerRandomVerb, Strings_En.pickerSearchVerb],
@@ -186,10 +188,6 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     //MARK: - Conjugate action handlers
     @objc func btnConjugateTouchUp()
     {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
-        
-//        let practiceViewControlerData = PracticeViewController()
         if(self.tenseMode == Strings_En.pickerRandomTense)
         {
             //Perform the random choice
@@ -213,7 +211,13 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
             else if(self.verbMode == Strings_En.pickerRandomVerb)
             {
                 //Get random verb and perform segue
-                show(practiceViewController, sender: self)
+                let n = Int.random(in: 0...ExistingVerbsList.arrayOfVerbs.count)
+                self.verbToBeConjugated = ExistingVerbsList.arrayOfVerbs[n]
+                Contants.verbPractice = self.verbToBeConjugated
+                Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
+                goToNextScreen()
+
+//                show(practiceViewController, sender: self)
             }
            
             self.alreadyClicked = true
@@ -230,9 +234,46 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
             //Before performing the Segue, get the API verb and tense for the next screen
             //Also, check and verify if the searched was valid
 //            practiceViewControlerData.verbData = verbSearched
-            Contants.verbPractice = verbSearched
-            show(practiceViewController, sender: self)
+            var verbExist = false
+            for verb in ExistingVerbsList.arrayOfVerbs
+            {
+                if(verbSearched.lowercased() == verb)
+                {
+                    verbExist = true
+                }
+            }
+            if(verbExist == true)
+            {
+                Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
+
+                Contants.verbPractice = verbSearched
+//                show(practiceViewController, sender: self)
+                goToNextScreen()
+            }
+            else
+            {
+                Toast.show(view: self, title: Strings_En.ToastFailVerbSearchTitle, message: Strings_En.ToastFailVerbSearchMessage)
+            }
             
+            
+        }
+        
+        //MARK: - Segue
+        func goToNextScreen()
+        {
+            var counter = 0
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+                //Call function to submit programatically
+                counter += 1
+                if(counter >= 3)
+                {
+                    timer.invalidate()
+                    let main = UIStoryboard(name: "Main", bundle: nil)
+                    let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
+                    self.show(practiceViewController, sender: self)
+                }
+          
+            })
         }
 
         

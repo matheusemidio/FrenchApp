@@ -46,6 +46,9 @@
 		C9AD4F572830354D000CA492 /* CorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F562830354D000CA492 /* CorrectionViewController.swift */; };
 		C9AD4F5928329ED3000CA492 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F5828329ED3000CA492 /* TestCell.swift */; };
 		C9AD4F5B2833CBD6000CA492 /* UILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F5A2833CBD6000CA492 /* UILabelView.swift */; };
+		C9AD4F6128368898000CA492 /* verbsJson.txt in Resources */ = {isa = PBXBuildFile; fileRef = C9AD4F6028368898000CA492 /* verbsJson.txt */; };
+		C9AD4F65283698AF000CA492 /* VerbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F64283698AF000CA492 /* VerbAPI.swift */; };
+		C9AD4F692836A73E000CA492 /* ExistingVerbsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F682836A73E000CA492 /* ExistingVerbsList.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		C9AD4F562830354D000CA492 /* CorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectionViewController.swift; sourceTree = "<group>"; };
 		C9AD4F5828329ED3000CA492 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		C9AD4F5A2833CBD6000CA492 /* UILabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelView.swift; sourceTree = "<group>"; };
+		C9AD4F6028368898000CA492 /* verbsJson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbsJson.txt; sourceTree = "<group>"; };
+		C9AD4F64283698AF000CA492 /* VerbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbAPI.swift; sourceTree = "<group>"; };
+		C9AD4F682836A73E000CA492 /* ExistingVerbsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingVerbsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,8 @@
 		C972923C2824874400FE6CAC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C9AD4F6328369865000CA492 /* VerbAPI */,
+				C9AD4F6228369858000CA492 /* JSON */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -278,6 +286,23 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		C9AD4F6228369858000CA492 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				C9AD4F6028368898000CA492 /* verbsJson.txt */,
+				C9AD4F682836A73E000CA492 /* ExistingVerbsList.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		C9AD4F6328369865000CA492 /* VerbAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C9AD4F64283698AF000CA492 /* VerbAPI.swift */,
+			);
+			path = VerbAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9AD4F51282EA9A0000CA492 /* FriendTableViewCell.xib in Resources */,
+				C9AD4F6128368898000CA492 /* verbsJson.txt in Resources */,
 				C949440528208DEB006D81E3 /* LaunchScreen.storyboard in Resources */,
 				C9AD4F38282984E3000CA492 /* GoogleService-Info.plist in Resources */,
 				C949440228208DEB006D81E3 /* Assets.xcassets in Resources */,
@@ -410,6 +436,7 @@
 				C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */,
 				C9AD4F44282ACB79000CA492 /* ProfileViewController.swift in Sources */,
 				C97292422824887900FE6CAC /* Dialog.swift in Sources */,
+				C9AD4F65283698AF000CA492 /* VerbAPI.swift in Sources */,
 				C97292382824870E00FE6CAC /* Student.swift in Sources */,
 				C9729236282486A300FE6CAC /* RegisterViewController.swift in Sources */,
 				C9AD4F572830354D000CA492 /* CorrectionViewController.swift in Sources */,
@@ -426,6 +453,7 @@
 				C94943F928208DEA006D81E3 /* AppDelegate.swift in Sources */,
 				C9AD4F3C282A8BDA000CA492 /* UINavbar.swift in Sources */,
 				C94943FB28208DEA006D81E3 /* SceneDelegate.swift in Sources */,
+				C9AD4F692836A73E000CA492 /* ExistingVerbsList.swift in Sources */,
 				C9AD4F2C28254422000CA492 /* Authentication.swift in Sources */,
 				C9AD4F50282EA9A0000CA492 /* FriendTableViewCell.swift in Sources */,
 				C9AD4F40282ACB60000CA492 /* ConjugateViewController.swift in Sources */,

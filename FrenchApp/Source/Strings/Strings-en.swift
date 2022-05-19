@@ -65,7 +65,10 @@ enum Strings_En
     static let ToastRegisterSuccessTitle : String  = "Success"
     static let ToastAlreadyExistMessage : String  = "The friend searched is already on the friend list."
     static let ToastAlreadyExistTitle : String  = "Fail"
-    
+    static let ToastFailVerbSearchMessage : String  = "The verb searched does not exist."
+    static let ToastFailVerbSearchTitle : String  = "Fail"
+    static let ToastSuccessConjugateSetupMessage : String  = "The practice is about to start."
+    static let ToastSuccessConjugateSetupTitle : String  = "Success"
     
     //Button titles
     static let buttonConjugateTitle : String  = "Conjugate now"
