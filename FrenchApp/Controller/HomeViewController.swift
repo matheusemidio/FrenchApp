@@ -11,14 +11,14 @@ class HomeViewController: UIViewController, UINavbarDelegate {
 
     //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
-    public var test : TestCell = TestCell()
+//    public var test : TestCell = TestCell()
     
     //MARK: - Declaration of variables
 
     //MARK: - Declaration of outlets
     @IBOutlet weak var titleDebugOutlet: UILabel!
 
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -27,33 +27,23 @@ class HomeViewController: UIViewController, UINavbarDelegate {
         titleDebugOutlet.isHidden = true
 
     }
-    public func fixTest()
-    {
-        test.name = "Matheus"
-        test.number = 10
-    }
-    //MARK: - Initialize and constraints
+
+    //MARK: - Initialize function
     private func initialize()
     {
-        self.view.addSubviews(navbar, test)
+        self.view.addSubviews(navbar)
         self.navbar.delegate = self
         applyContraints()
-        fixTest()
     }
     
+    //MARK: - Applying constraints
     private func applyContraints()
     {
-        test.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        test.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        test.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        test.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
-        
         navbar.translatesAutoresizingMaskIntoConstraints = false
         navbar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         navbar.heightAnchor.constraint(equalToConstant: Contants.navBarItemDimension).isActive = true
         navbar.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        
     }
     
     //MARK: - Navbar Action Handlers

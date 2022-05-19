@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
     @IBOutlet weak var lblTitleDebug: UILabel!
     
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
         self.title = Strings_En.profileTitle
 
     }
+    //MARK: - View initalization functions
     private func updateValues()
     {
         txtEmail.txtEntry.text = Contants.loggedUser.email
@@ -59,13 +60,12 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
         txtEmail.typeOfKeyboard = .emailAddress
         txtEmail.capitalizationType = .none
 
-
         txtAge.typeOfKeyboard = .numberPad
         
     }
     private func fixButton()
     {
-        btnUpdate.setTitle("Update", for: .normal)
+        btnUpdate.setTitle(Strings_En.buttonUpdateTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnUpdate.backgroundColor = UIColor(named: Contants.frenchBlue)
         btnUpdate.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -75,7 +75,7 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
         self.btnUpdate.isUserInteractionEnabled = true
     }
     
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize function
     private func initialize()
     {
         self.view.addSubviews(txtEmail, txtFirstName, txtLastName, txtAge, btnUpdate, navbar)
@@ -84,6 +84,8 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
         fixButton()
         applyContraints()
     }
+    
+    //MARK: - Applying contraints
     private func applyContraints()
     {
         txtEmail.translatesAutoresizingMaskIntoConstraints = false
@@ -197,7 +199,7 @@ class ProfileViewController: UIViewController , UINavbarDelegate{
     func updateUserSuccessHandler()
     {
         print("The student was updated")
-        Toast.show(view: self, title: "Success", message: "The student info was updated.")
+        Toast.show(view: self, title: Strings_En.ToastUpdateProfileSuccessTitle , message: Strings_En.ToastUpdateProfileSuccessTitle)
         let main = UIStoryboard(name: "Main", bundle: nil)
         let profileViewController = main.instantiateViewController(withIdentifier: Segue.ProfileViewController)
         show(profileViewController, sender: self)

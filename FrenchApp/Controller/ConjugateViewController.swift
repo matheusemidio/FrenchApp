@@ -27,7 +27,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     //MARK: - Declaration of outlets
     @IBOutlet weak var pickerViewOutlet: UIPickerView!
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -37,6 +37,8 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         self.pickerViewOutlet.delegate = self
         self.pickerViewOutlet.dataSource = self
     }
+    
+    //MARK: - View initalization functions
     private func setPlaceholders()
     {
         txtVerb.title = Strings_En.verbSearch
@@ -47,7 +49,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     }
     private func fixButton()
     {
-        btnConjugate.setTitle("Conjugate", for: .normal)
+        btnConjugate.setTitle(Strings_En.buttonConjugateTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnConjugate.backgroundColor = UIColor(named: Contants.frenchBlue)
         btnConjugate.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -57,7 +59,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         self.btnConjugate.isUserInteractionEnabled = true
     }
     
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize function
     private func initialize()
     {
         setPlaceholders()
@@ -67,6 +69,8 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         applyContraints()
         self.alreadyClicked = false
     }
+    
+    //MARK: - Applying constraints
     private func applyContraints()
     {
         btnConjugate.translatesAutoresizingMaskIntoConstraints = false
@@ -140,27 +144,17 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
 
     //Data for the rows
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        if(self.alreadyClicked == true && row == 0)
-//        {
-//            Toast.show(view: self, title: "Debug", message: "Returning your selection on Verb mode")
-//            return pickerData[self.verbSelection[0]][self.verbSelection[1]]
-//        }
-//        else if(self.alreadyClicked == true && row == 1)
-//        {
-//            Toast.show(view: self, title: "Debug", message: "Returning your selection on Tense mode")
-//            return pickerData[self.tenseSelection[0]][self.tenseSelection[1]]
-//        }
         return pickerData[component][row]
     }
     
     //Get the selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        if(pickerData[component][row] == "Random tense" || pickerData[component][row] == "Search tense")
+        if(pickerData[component][row] == Strings_En.pickerRandomTense || pickerData[component][row] == Strings_En.pickerSearchTense)
         {
             self.tenseMode = pickerData[component][row]
             self.tenseSelection = [component, row]
-        }else if(pickerData[component][row] == "Random verb" || pickerData[component][row] == "Search verb")
+        }else if(pickerData[component][row] == Strings_En.pickerRandomVerb || pickerData[component][row] == Strings_En.pickerSearchVerb)
         {
             self.verbMode = pickerData[component][row]
             self.verbSelection = [component, row]
@@ -170,53 +164,27 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         print("Tense mode ->" + self.tenseMode)
     }
 
-
-//    @IBAction func btnSubmitTouchUp(_ sender: Any)
-//    {
-//        //print(self.modeSelection!)
-//        if(self.verbMode == "Random")
-//        {
-////            self.performSegue(withIdentifier: Segue.toPracticeQuestion, sender: nil)
-//        } else if(self.verbMode == "Manual")
-//        {
-////            self.performSegue(withIdentifier: Segue.toNewQuestion, sender: nil)
-//        }
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == Segue.toPracticeQuestion)
-//        {
-//            let practiceQuestionViewController  = (segue.destination as! PracticeQuestionViewController)
-//            practiceQuestionViewController.typeData = self.typeSelection
-//        }else if(segue.identifier == Segue.toNewQuestion)
-//        {
-//            let newQuestionViewController = (segue.destination as! NewQuestionViewController)
-//            newQuestionViewController.typeData = self.typeSelection
-//        }
-//    }
-
-    //MARK: - Update action handler
+    //MARK: - Conjugate action handlers
     @objc func btnConjugateTouchUp()
     {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
         if(txtVerb.isHidden == true && txtTense.isHidden == true)
         {
-            if(self.verbMode == "Search verb")
+            if(self.verbMode == Strings_En.pickerSearchVerb)
             {
                 txtVerb.isHidden = false
             }
-            if(self.tenseMode == "Search tense")
+            if(self.tenseMode == Strings_En.pickerSearchTense)
             {
                 txtTense.isHidden = false
             }
-            else if((self.verbMode == "Random verb") && (self.tenseMode == "Random tense"))
+            else if((self.verbMode == Strings_En.pickerRandomVerb) && (self.tenseMode == Strings_En.pickerRandomTense))
             {
 //                Toast.show(view: self, title: "Debug", message: "Random -> Ready to perform the segue.")
                 //Before performing the Segue, get the API verb and tense for the next screen
                 show(practiceViewController, sender: self)
                 
-
             }
             self.alreadyClicked = true
             return

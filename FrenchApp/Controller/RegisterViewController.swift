@@ -16,18 +16,24 @@ class RegisterViewController: UIViewController {
     public var txtFirstName : UIEntryView = UIEntryView()
     public var txtLastName : UIEntryView = UIEntryView()
     public var txtAge : UIEntryView = UIEntryView()
+    public var timer : Timer = Timer()
+
     
     //MARK: - Declaration of variables
     public var studentToBeSaved : Student?
+
     //MARK: - Declaration of outlets
     @IBOutlet weak var btnRegisterOutlet: UIButton!
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        self.title = Strings_En.registerTitle
         
     }
+    
+    //MARK: - View initalization functions
     private func setPlaceholders()
     {
         txtEmail.title = Strings_En.email
@@ -45,22 +51,21 @@ class RegisterViewController: UIViewController {
         txtEmail.capitalizationType = .none
         
         txtPassword.capitalizationType = .none
-//        txtPassword.isSecure = true
-//        txtPassword.typeOfKeyboard = .default
 
         txtAge.typeOfKeyboard = .numberPad
-        
     }
     
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize function
     private func initialize()
     {
-        configure()
-    
         self.view.addSubviews(txtEmail, txtFirstName, txtLastName, txtAge, txtPassword)
+        
         applyContraints()
+        configure()
+
     }
     
+    //MARK: - Applying constraints
     private func applyContraints()
     {
         
@@ -94,8 +99,6 @@ class RegisterViewController: UIViewController {
         txtPassword.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         txtPassword.topAnchor.constraint(equalTo: txtAge.bottomAnchor, constant: Contants.formEntrySpacing).isActive = true
         txtPassword.heightAnchor.constraint(equalToConstant: Contants.formEntryHeight).isActive = true
-
-        
     }
     
     //MARK: - Register action handler
@@ -150,7 +153,7 @@ class RegisterViewController: UIViewController {
         btnRegisterOutlet.shakeWith(txtEmail, txtPassword, txtAge, txtFirstName, txtLastName)
     }
     
-    //MARK: - Save action handler
+    //MARK: - Save User action handlers
     func saveUserSucessHandler()
     {
         print("The new student was saved")
@@ -165,15 +168,37 @@ class RegisterViewController: UIViewController {
         print("SaveFail -> \(errorMessage)")
         btnRegisterOutlet.shakeWith(txtEmail, txtPassword, txtAge, txtFirstName, txtLastName)
     }
+    
+    //MARK: - Save FriendBook action handlers
     func saveFriendBookSuccessHandler()
     {
         print("The new friend book was created")
-        performSegue(withIdentifier: Segue.fromRegister_toLogin, sender: self)
+        Toast.show(view: self, title: Strings_En.ToastRegisterSuccessTitle, message: Strings_En.ToastRegisterSuccessMessage)
+        goToNextScreen()
+//        performSegue(withIdentifier: Segue.fromRegister_toLogin, sender: self)
 //        self.navigationController?.popViewController(animated: true)
     }
     func saveFriendBookFailHandler(error : String)
     {
         print(error)
+    }
+    
+    //MARK: - Segue
+    func goToNextScreen()
+    {
+        var counter = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            //Call function to submit programatically
+            counter += 1
+            if(counter >= 3)
+            {
+                timer.invalidate()
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = main.instantiateViewController(withIdentifier: Segue.LoginViewController)
+                self.show(loginViewController, sender: self)
+            }
+      
+        })
     }
     
 }

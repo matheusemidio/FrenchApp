@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title of the App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-OK-aHR">
-                                <rect key="frame" x="20" y="362" width="374" height="172"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇫🇷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMh-sc-5Fv">
+                                <rect key="frame" x="20" y="481" width="374" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="97"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,6 +50,13 @@
                                     <segue destination="Rc9-AN-GPk" kind="show" identifier="fromMain_toLogin" id="NjC-rW-cev"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="French Conjugation App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-OK-aHR">
+                                <rect key="frame" x="20" y="388" width="374" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,13 +92,7 @@
                         <viewLayoutGuide key="safeArea" id="5nb-iX-v74"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rXF-Hm-QVn">
-                        <barButtonItem key="rightBarButtonItem" image="network" catalog="system" id="0zv-6p-G8K">
-                            <connections>
-                                <action selector="barBtnTouchUp:" destination="ySI-40-cWG" id="etg-zY-WZj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="rXF-Hm-QVn"/>
                     <connections>
                         <outlet property="btnRegisterOutlet" destination="eN7-05-Kg8" id="ZT3-20-fAT"/>
                         <segue destination="Rc9-AN-GPk" kind="show" identifier="fromRegister_toLogin" id="3fz-zJ-mgn"/>
@@ -328,7 +329,6 @@
         <segue reference="3fz-zJ-mgn"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="network" catalog="system" width="128" height="121"/>
         <namedColor name="FrenchBackground">
             <color red="0.71100002527236938" green="0.87900000810623169" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

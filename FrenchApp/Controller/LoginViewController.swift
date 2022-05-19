@@ -12,18 +12,22 @@ class LoginViewController: UIViewController {
     //MARK: - Declaration of views
     public var txtEmail : UIEntryView = UIEntryView()
     public var txtPassword : UIEntryView = UIEntryView()
-    
+    public var timer : Timer = Timer()
+
     //MARK: - Declaration of variables
 
     
     //MARK: - Declaration of outlets
     @IBOutlet weak var btnLoginOutlet: UIButton!
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        self.title = Strings_En.loginTitle
     }
+    
+    //MARK: - View initalization functions
     private func setPlaceholders()
     {
         txtEmail.title = Strings_En.email
@@ -39,24 +43,24 @@ class LoginViewController: UIViewController {
         txtPassword.capitalizationType = .none
         
         txtPassword.isSecure = true
-//        txtPassword.typeOfKeyboard = .default
-        
     }
     
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize Function
     private func initialize()
     {
-        configure()
-    
-        self.view.addSubviews(txtEmail, txtPassword)
-        applyContraints()
-        
-        
         //Debug:
-        txtEmail.txtEntry.text = "tony2@me.com"
-        txtPassword.txtEntry.text = "123456"
+        txtEmail.txtEntry.text = Strings_En.hardcodedEmail
+        txtPassword.txtEntry.text = Strings_En.hardcodedPassword
+        
+        self.view.addSubviews(txtEmail, txtPassword)
+   
+        configure()
+        applyContraints()
+
+
     }
     
+    //MARK: - Applying constraints
     private func applyContraints()
     {
         txtEmail.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +77,7 @@ class LoginViewController: UIViewController {
 
     }
     
-    //MARK: - Login action handler
+    //MARK: - Login action handlers
     @IBAction func btnLoginTouchUp(_ sender: Any)
     {
         guard let email = txtEmail.txtEntry.text, email != "", email.isValidEmail() == true else
@@ -89,31 +93,33 @@ class LoginViewController: UIViewController {
         Authentication.signIn(email: email, password: password, successHandler: authSuccessHandler, failHandler: authFailHandler)
     }
     
-    //MARK: - Authentication action handler
+    //MARK: - Authentication action handlers
     func authSuccessHandler( _ userUid : String)
     {
-        Student.find(uid: userUid, successHandler: findSuccessHandler, failHandler: findFailHandler)
+        Student.find(uid: userUid, successHandler: findUserSuccessHandler, failHandler: findUserFailHandler)
     }
     func authFailHandler(_ errorMessage : String)
     {
         print("AuthenticationFail -> \(errorMessage)")
         btnLoginOutlet.shakeWith(txtEmail, txtPassword)
-        Toast.show(view: self, title: "Fail", message: "Wrong email and password do not match.")
+        Toast.show(view: self, title: Strings_En.ToastAuthenticationFailTitle, message: Strings_En.ToastAuthenticationFailMessage)
 
     }
     
-    //MARK: - Find action handler
-    func findSuccessHandler(_ student : Student)
+    //MARK: - Find User action handler
+    func findUserSuccessHandler(_ student : Student)
     {
         print("Login was sucessful")
         Contants.loggedUser = student
         FriendBook.find(uid: student.uid!, successHandler: findFriendBookSuccessHandler, failHandler: findFriendBookFailHandler)
        
     }
-    func findFailHandler(_ errorMessage : String)
+    func findUserFailHandler(_ errorMessage : String)
     {
         print("FindFail -> \(errorMessage)")
     }
+    
+    //MARK: - Find FriendBook action handler
     func findFriendBookSuccessHandler(_ friendBook : FriendBook)
     {
         for friend in friendBook.listOfFriends
@@ -123,13 +129,32 @@ class LoginViewController: UIViewController {
                 Contants.loggedFriendBook.listOfFriends.append(friend)
             }
         }
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
-        show(homeViewController, sender: self)
+        Toast.show(view: self, title: Strings_En.ToastLogInSuccessTitle, message: Strings_En.ToastLogInSuccessMessage)
+        goToNextScreen()
+        
     }
+    
     func findFriendBookFailHandler(_ errorMessage : String)
     {
         print(errorMessage)
+    }
+    
+    //MARK: - Segue
+    func goToNextScreen()
+    {
+        var counter = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            //Call function to submit programatically
+            counter += 1
+            if(counter >= 3)
+            {
+                timer.invalidate()
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let homeViewController = main.instantiateViewController(withIdentifier: Segue.HomeViewController)
+                self.show(homeViewController, sender: self)
+            }
+      
+        })
     }
     
 }

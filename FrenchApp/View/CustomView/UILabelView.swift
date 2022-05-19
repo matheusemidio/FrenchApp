@@ -1,13 +1,13 @@
 //
-//  UiEntryView.swift
+//  UILabelView.swift
 //  FrenchApp
 //
-//  Created by Matheus Cadena on 2022-05-06.
+//  Created by Matheus Cadena on 2022-05-17.
 //
 
 import UIKit
 
-class UIEntryView: UIView {
+class UILabelView: UIView {
 
     //MARK: - Declaration of items
     private let imgBackground : UIImageView = {
@@ -16,48 +16,24 @@ class UIEntryView: UIView {
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
-    public let txtEntry : UITextField = {
-        let input = UITextField()
+    public let txtEntry : UILabel = {
+        let input = UILabel()
         input.font = UIFont.systemFont(ofSize: 20)
         input.textColor = .systemGray
         input.textAlignment = .center
         input.backgroundColor = .white
 //        input.borderStyle = .roundedRect
         input.translatesAutoresizingMaskIntoConstraints = false
-        input.isSecureTextEntry = false
         input.text = ""
-        input.keyboardType = .default
-        input.autocorrectionType = .no
+//        input.autocapitalizationType = UITextAutocapitalizationType
         return input
         
     }()
 
     //MARK: - Setters
-    public var title : String = "" {
+    public var newText : String = "" {
         didSet{
-            txtEntry.placeholder = title
-        }
-    }
-    public var isSecure : Bool = false{
-        didSet{
-            txtEntry.isSecureTextEntry = isSecure
-        }
-    }
-    public var enableInteraction : Bool = true{
-        didSet{
-//            txtEntry.isUserInteractionEnabled = enableInteraction
-            txtEntry.isEnabled = enableInteraction
-        }
-    }
-    public var capitalizationType : UITextAutocapitalizationType = .words
-    {
-        didSet{
-            txtEntry.autocapitalizationType = capitalizationType
-        }
-    }
-    public var typeOfKeyboard : UIKeyboardType = .asciiCapable{
-        didSet{
-            txtEntry.keyboardType = typeOfKeyboard
+            txtEntry.text = newText
         }
     }
     

@@ -45,6 +45,7 @@
 		C9AD4F55283000FE000CA492 /* UIProgressTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */; };
 		C9AD4F572830354D000CA492 /* CorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F562830354D000CA492 /* CorrectionViewController.swift */; };
 		C9AD4F5928329ED3000CA492 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F5828329ED3000CA492 /* TestCell.swift */; };
+		C9AD4F5B2833CBD6000CA492 /* UILabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD4F5A2833CBD6000CA492 /* UILabelView.swift */; };
 		D1B56F945A41774BA1F74721 /* Pods_FrenchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4879E8C2037E2047717A17F4 /* Pods_FrenchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressTimerView.swift; sourceTree = "<group>"; };
 		C9AD4F562830354D000CA492 /* CorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectionViewController.swift; sourceTree = "<group>"; };
 		C9AD4F5828329ED3000CA492 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		C9AD4F5A2833CBD6000CA492 /* UILabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				C9AD4F3D282A8C64000CA492 /* UINavbarItem.swift */,
 				C9AD4F54283000FE000CA492 /* UIProgressTimerView.swift */,
 				C9AD4F5828329ED3000CA492 /* TestCell.swift */,
+				C9AD4F5A2833CBD6000CA492 /* UILabelView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				C9AD4F2F28254CAA000CA492 /* Contants.swift in Sources */,
 				C972924F28248B2700FE6CAC /* HomeViewController.swift in Sources */,
 				C9AD4F53282EEB33000CA492 /* FriendBook.swift in Sources */,
+				C9AD4F5B2833CBD6000CA492 /* UILabelView.swift in Sources */,
 				C9AD4F55283000FE000CA492 /* UIProgressTimerView.swift in Sources */,
 				C97292342824869100FE6CAC /* LoginViewController.swift in Sources */,
 				C972924D282489DC00FE6CAC /* Strings-fr.swift in Sources */,

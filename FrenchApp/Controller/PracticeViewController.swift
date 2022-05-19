@@ -22,12 +22,16 @@ class PracticeViewController: UIViewController {
     public var lblTense : UILabel = UILabel()
     public var lblSelectedVerb : UILabel = UILabel()
     public var lblSelectedTense : UILabel = UILabel()
+    public var timer : Timer = Timer()
+
     
     //MARK: - Declaration of variables
-    var timer : Timer = Timer()
+    var verb = Strings_En.hardcodedPracticeVerb
+    var tense = Strings_En.hardcodedPracticeTense
+    
     //MARK: - Declaration of outlets
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -35,6 +39,7 @@ class PracticeViewController: UIViewController {
         self.title = Strings_En.practiceTitle
         // Do any additional setup after loading the view.
     }
+    //MARK: - View initalization functions
     private func setPlaceholders()
     {
         txtSingFirst.title = Strings_En.singFirst
@@ -44,10 +49,17 @@ class PracticeViewController: UIViewController {
         txtPlurSecond.title = Strings_En.plurSecond
         txtPlurThird.title = Strings_En.plurThird
         
+        txtSingFirst.capitalizationType = .none
+        txtSingSecond.capitalizationType = .none
+        txtSingThird.capitalizationType = .none
+        txtPlurFirst.capitalizationType = .none
+        txtPlurSecond.capitalizationType = .none
+        txtPlurThird.capitalizationType = .none
+
     }
     private func fixButton()
     {
-        btnSubmit.setTitle("Submit", for: .normal)
+        btnSubmit.setTitle(Strings_En.buttonSubmitTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnSubmit.backgroundColor = UIColor(named: Contants.frenchBlue)
         btnSubmit.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -61,25 +73,27 @@ class PracticeViewController: UIViewController {
         lblVerb.font = UIFont.systemFont(ofSize: 30)
         lblVerb.textColor = .black
         lblVerb.textAlignment = .center
-        lblVerb.text = "Verb"
+        lblVerb.text = Strings_En.practiceVerbLabel
         
         lblTense.font = UIFont.systemFont(ofSize: 30)
         lblTense.textColor = .black
         lblTense.textAlignment = .center
-        lblTense.text = "Tense"
+        lblTense.text = Strings_En.practiceTenseLabel
         
         lblSelectedVerb.font = UIFont.systemFont(ofSize: 20)
         lblSelectedVerb.textColor = .black
         lblSelectedVerb.textAlignment = .center
-        lblSelectedVerb.text = "Avoir"
+        lblSelectedVerb.text = self.verb
         
         lblSelectedTense.font = UIFont.systemFont(ofSize: 20)
         lblSelectedTense.textColor = .black
         lblSelectedTense.textAlignment = .center
-        lblSelectedTense.text = "Present"
+        lblSelectedTense.text = self.tense
     }
+    //MARK: - Timer function for progressView
     func startTimer()
     {
+        var isDone = false
         self.progressView.setProgress = 1
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
@@ -90,17 +104,18 @@ class PracticeViewController: UIViewController {
             if self.progressView.progressBar.progress <= 0
             {
                 timer.invalidate()
-                Toast.show(view: self, title: "Finish", message: "Your time is up.")
-                //Call function to submit programatically
-
+                Toast.show(view: self, title: Strings_En.ToastFinishTimeTitle, message: Strings_En.ToastFinishTimeMessage )
+                self.getAnswers()
+                self.goToNextScreen()
             }
         })
         
         
         
+        
     }
 
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize function
     private func initialize()
     {
         self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnSubmit, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense, progressView)
@@ -110,6 +125,7 @@ class PracticeViewController: UIViewController {
         fixLabels()
         startTimer()
     }
+    //MARK: - Applying constraints
     private func applyContraints()
     {
         txtSingFirst.translatesAutoresizingMaskIntoConstraints = false
@@ -188,49 +204,47 @@ class PracticeViewController: UIViewController {
         
     }
     
-    //MARK: - Navbar Action Handlers
+    //MARK: - Submit action handlers
     @objc func btnSubmitTouchUp()
     {
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
-//        show(conjugateViewController, sender: self)
-        
-//        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
-//        {
-//            btnSubmit.shakeWith(txtSingFirst)
-//            return
-//        }
-//        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
-//        {
-//            btnSubmit.shakeWith(txtSingSecond)
-//            return
-//        }
-//        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
-//        {
-//            btnSubmit.shakeWith(txtSingThird)
-//            return
-//        }
-//        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
-//        {
-//            btnSubmit.shakeWith(txtPlurFirst)
-//            return
-//        }
-//        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
-//        {
-//            btnSubmit.shakeWith(txtPlurSecond)
-//            return
-//        }
-//        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
-//        {
-//            btnSubmit.shakeWith(txtPlurThird)
-//            return
-//        }
-        
+        getAnswers()
+        Toast.show(view: self, title: Strings_En.ToastFinishTimeTitle, message: Strings_En.ToastFinishConjugationMessage )
         //Pass the answers, verb and tense selected
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
-        show(correctionViewController, sender: self)
-        print("Submit tapped")
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
+//        show(correctionViewController, sender: self)
+//        print("Submit tapped")
+        goToNextScreen()
+    }
+    
+    //MARK: - Get Answers action handler
+    func getAnswers()
+    {
+        let singFirst = txtSingFirst.txtEntry.text != nil ? txtSingFirst.txtEntry.text : ""
+        let singSecond = txtSingSecond.txtEntry.text != nil ? txtSingSecond.txtEntry.text : ""
+        let singThird = txtSingThird.txtEntry.text != nil ? txtSingThird.txtEntry.text : ""
+        let plurFirst = txtPlurFirst.txtEntry.text != nil ? txtPlurFirst.txtEntry.text : ""
+        let plurSecond = txtPlurSecond.txtEntry.text != nil ? txtPlurSecond.txtEntry.text : ""
+        let plurThird = txtPlurThird.txtEntry.text != nil ? txtPlurThird.txtEntry.text : ""
+        
+        let verb : Verb = Verb(tense: self.tense, firstSing: singFirst!, secondSing: singSecond!, thirdSing: singThird!, firstPlur: plurFirst!, secondPlur: plurSecond!, thirdPlur: plurThird!)
+    }
+    
+    func goToNextScreen()
+    {
+        var counter = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            //Call function to submit programatically
+            counter += 1
+            if(counter >= 3)
+            {
+                timer.invalidate()
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
+                self.show(correctionViewController, sender: self)
+            }
+      
+        })
     }
     
 

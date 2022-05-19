@@ -10,12 +10,12 @@ import UIKit
 class CorrectionViewController: UIViewController {
 
     //MARK: - Declaration of views
-    public var txtSingFirst : UIEntryView = UIEntryView()
-    public var txtSingSecond : UIEntryView = UIEntryView()
-    public var txtSingThird : UIEntryView = UIEntryView()
-    public var txtPlurFirst : UIEntryView = UIEntryView()
-    public var txtPlurSecond : UIEntryView = UIEntryView()
-    public var txtPlurThird : UIEntryView = UIEntryView()
+    public var txtSingFirst : UILabelView = UILabelView()
+    public var txtSingSecond : UILabelView = UILabelView()
+    public var txtSingThird : UILabelView = UILabelView()
+    public var txtPlurFirst : UILabelView = UILabelView()
+    public var txtPlurSecond : UILabelView = UILabelView()
+    public var txtPlurThird : UILabelView = UILabelView()
     public var btnReturn : UIButton = UIButton()
     public var lblVerb : UILabel = UILabel()
     public var lblTense : UILabel = UILabel()
@@ -26,24 +26,19 @@ class CorrectionViewController: UIViewController {
 
     //MARK: - Declaration of outlets
     
+    //MARK: - View load
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = Strings_En.correctionTitle
     }
-    private func checkCorrection()
-    {
-//        txtSingFirst.title = Strings_En.singFirst
-//        txtSingSecond.title = Strings_En.singSecond
-//        txtSingThird.title = Strings_En.singThird
-//        txtPlurFirst.title = Strings_En.plurFirst
-//        txtPlurSecond.title = Strings_En.plurSecond
-//        txtPlurThird.title = Strings_En.plurThird
-    }
+
+    
+    //MARK: - View initalization functions
     private func fixButton()
     {
-        btnReturn.setTitle("Return", for: .normal)
+        btnReturn.setTitle(Strings_En.buttonReturnTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnReturn.backgroundColor = UIColor(named: Contants.frenchBlue)
         btnReturn.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -57,34 +52,24 @@ class CorrectionViewController: UIViewController {
         lblVerb.font = UIFont.systemFont(ofSize: 30)
         lblVerb.textColor = .black
         lblVerb.textAlignment = .center
-        lblVerb.text = "Verb"
+        lblVerb.text = Strings_En.practiceVerbLabel
         
         lblTense.font = UIFont.systemFont(ofSize: 30)
         lblTense.textColor = .black
         lblTense.textAlignment = .center
-        lblTense.text = "Tense"
+        lblTense.text = Strings_En.practiceTenseLabel
         
         lblSelectedVerb.font = UIFont.systemFont(ofSize: 20)
         lblSelectedVerb.textColor = .black
         lblSelectedVerb.textAlignment = .center
-        lblSelectedVerb.text = "Avoir"
+        lblSelectedVerb.text = Strings_En.hardcodedPracticeVerb
         
         lblSelectedTense.font = UIFont.systemFont(ofSize: 20)
         lblSelectedTense.textColor = .black
         lblSelectedTense.textAlignment = .center
-        lblSelectedTense.text = "Present"
+        lblSelectedTense.text = Strings_En.hardcodedPracticeTense
     }
-    private func fixEntries()
-    {
-        self.txtPlurFirst.enableInteraction = false
-        self.txtSingSecond.enableInteraction = false
-        self.txtSingThird.enableInteraction = false
-        self.txtPlurFirst.enableInteraction = false
-        self.txtPlurSecond.enableInteraction = false
-        self.txtPlurThird.enableInteraction = false
-
-    }
-    //MARK: - Initialize and constraints
+    //MARK: - Initialize function
     private func initialize()
     {
         self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnReturn, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense)
@@ -92,8 +77,8 @@ class CorrectionViewController: UIViewController {
         checkCorrection()
         applyContraints()
         fixLabels()
-        fixEntries()
     }
+    //MARK: - Applying constraints
     private func applyContraints()
     {
         txtSingFirst.translatesAutoresizingMaskIntoConstraints = false
@@ -171,37 +156,18 @@ class CorrectionViewController: UIViewController {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
         show(conjugateViewController, sender: self)
-//        guard let singFirst = txtSingFirst.txtEntry.text, singFirst != "" else
-//        {
-//            btnReturn.shakeWith(txtSingFirst)
-//            return
-//        }
-//        guard let singSecond = txtSingSecond.txtEntry.text, singSecond != "" else
-//        {
-//            btnReturn.shakeWith(txtSingSecond)
-//            return
-//        }
-//        guard let singThird = txtSingThird.txtEntry.text, singThird != "" else
-//        {
-//            btnReturn.shakeWith(txtSingThird)
-//            return
-//        }
-//        guard let plurFirst = txtPlurFirst.txtEntry.text, plurFirst != "" else
-//        {
-//            btnReturn.shakeWith(txtPlurFirst)
-//            return
-//        }
-//        guard let plurSecond = txtPlurSecond.txtEntry.text, plurSecond != "" else
-//        {
-//            btnReturn.shakeWith(txtPlurSecond)
-//            return
-//        }
-//        guard let plurThird = txtPlurThird.txtEntry.text, plurThird != "" else
-//        {
-//            btnReturn.shakeWith(txtPlurThird)
-//            return
-//        }
+
         print("Return tapped")
+    }
+    //MARK: - Check correction function
+    private func checkCorrection()
+    {
+//        txtSingFirst.title = Strings_En.singFirst
+//        txtSingSecond.title = Strings_En.singSecond
+//        txtSingThird.title = Strings_En.singThird
+//        txtPlurFirst.title = Strings_En.plurFirst
+//        txtPlurSecond.title = Strings_En.plurSecond
+//        txtPlurThird.title = Strings_En.plurThird
     }
 
 }

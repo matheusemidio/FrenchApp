@@ -28,7 +28,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     //MARK: - Declaration of outlets
     @IBOutlet weak var tableView : UITableView!
     
-    //MARK: - View load and initialization of entries
+    //MARK: - View load
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
   
     
     }
-    //MARK: - Initialize and constraints
+    //MARK: - View initalization functions
     private func fixTableView()
     {
         tableView.delegate = self
@@ -66,7 +66,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     }
     private func fixButton()
     {
-        btnSearch.setTitle("Search", for: .normal)
+        btnSearch.setTitle(Strings_En.buttonSearchTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnSearch.backgroundColor = UIColor(named: Contants.frenchBlue)
         btnSearch.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -75,7 +75,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         self.btnSearch.addGestureRecognizer(tapSearch)
         self.btnSearch.isUserInteractionEnabled = true
         
-        btnAdd.setTitle("Add Friend", for: .normal)
+        btnAdd.setTitle(Strings_En.buttonAddFriendTitle, for: .normal)
 //        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
         btnAdd.backgroundColor = UIColor(named: Contants.frenchRed)
         btnAdd.titleLabel?.font =  UIFont(name: "...", size: 30)
@@ -92,6 +92,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
 //        txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
     }
+    //MARK: - Initialize Function
     private func initialize()
     {
         self.view.addSubviews(navbar, txtSearch, btnSearch, btnAdd)
@@ -124,30 +125,12 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UIFriendCell
-//        cell.setCellContent(student: self.friendBook!.listOfFriends[1], number: 10)
-//        cell.setCellContent()
-//        cell.name = "Matheus"
-//        cell.name = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
-//        cell.number = Contants.loggedFriendBook.listOfFriends[indexPath.row].conjugationStreak
-//        cell.textLabel?.text = Contants.loggedFriendBook.listOfFriends[indexPath.row].getFullName()
-        
         cell.friendModel = Contants.loggedFriendBook.listOfFriends[(indexPath.row + 1)]
-//        cell.friendModel = self.testBook!.listOfFriends[indexPath.row]
-//        cell.friendModel = self.friendBook?.listOfFriends[indexPath.row]
-
-
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Contants.heightTableViewCell
     }
-    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        self.view.endEditing(true)
-    //    }
-    //    @objc func tableViewTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    //    {
-    //        self.view.endEditing(true)
-    //    }
     
     //MARK: - Friend Book init
     private func refreshListOfFriends()
@@ -157,6 +140,8 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
 //        var student = Student(firstName: "Matheus", lastName: "Cadena", email: "matheus@me.com", age: "25")
 //        listOfFriends.append(student)
     }
+    
+    //MARK: - Find FriendBook action handlers
     func findFriendBookSuccessHandler(_ friendBook : FriendBook)
     {
 //        for friend in friendBook.listOfFriends
@@ -179,7 +164,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         print(error)
     }
     
-    //MARK: - Update action handler
+    //MARK: - Search action handlers
     @objc func btnSearchTouchUp()
     {
         guard let txtSearchedEmail = txtSearch.txtEntry.text, txtSearchedEmail != "", txtSearchedEmail.isValidEmail() == true else
@@ -188,20 +173,23 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
             return
         }
         self.searchedEmail = txtSearchedEmail
-        Student.findAll(successHandler: findAllSuccessHandler, failHandler: findAllFailHandler)
+        Student.findAll(successHandler: findAllStudentsSuccessHandler, failHandler: findAllStudentsFailHandler)
     }
-    //MARK: - Find All action handlers
-    func findAllSuccessHandler(listOfStudents : [Student])
+    
+    //MARK: - Find All Students action handlers
+    func findAllStudentsSuccessHandler(listOfStudents : [Student])
     {
         //For debug
 //        btnAdd.isHidden = false
-        
+        var studentExists = false
+        var friendAlreadyAdded = false
+
         for student in listOfStudents {
             //The student searched exist
             if(student.email.lowercased() == self.searchedEmail?.lowercased())
             {
+                studentExists = true
                 //Check if the student searched is already on the FriendBook
-                var friendAlreadyAdded = false
                 for aStudent in Contants.loggedFriendBook.listOfFriends
                 {
                     if(self.searchedEmail?.lowercased() == aStudent.email.lowercased())
@@ -218,29 +206,44 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
                 //Update table view with the students found
             }
         }
-        
+        if(studentExists == false)
+        {
+            btnSearch.shake()
+        }
+        if(friendAlreadyAdded == true)
+        {
+            Toast.show(view: self, title: Strings_En.ToastAlreadyExistTitle, message: Strings_En.ToastAlreadyExistMessage)
+
+        }
+
     }
-    func findAllFailHandler(error : String)
+    func findAllStudentsFailHandler(error : String)
     {
         print(error)
     }
     
-    //MARK: - Add action handler
+    //MARK: - Add action handlers
     @objc func btnAddTouchUp()
     {
         print("Button add tapped")
         Contants.loggedFriendBook.listOfFriends.append(self.searchedStudent!)
 //        Contants.loggedUser.save(successHandler: updateUserSuccessHandler, failHandler: updateUserFailSuccessHandler)
-        Contants.loggedFriendBook.save(successHandler: saveFriendSuccessHandler, failHandler: saveFriendBookFailHandler)
+        Contants.loggedFriendBook.uid = Contants.loggedUser.uid
+        Contants.loggedFriendBook.save(successHandler: saveFriendBookSuccessHandler, failHandler: saveFriendBookFailHandler)
         //Update table view to show the list of friends and hide the button add
     }
-    func saveFriendSuccessHandler()
+    func saveFriendBookSuccessHandler()
     {
         print("The student book was updated")
-        Toast.show(view: self, title: "Success", message: "New friend added to the list.")
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let socialViewController = main.instantiateViewController(withIdentifier: Segue.SocialViewController)
-        show(socialViewController, sender: self)
+        DispatchQueue.main.async
+        {
+            self.tableView.reloadData()
+        }
+        Toast.show(view: self, title: Strings_En.ToastAddedFriendSuccessTitle, message: Strings_En.ToastAddedFriendSuccessMessage )
+      
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let socialViewController = main.instantiateViewController(withIdentifier: Segue.SocialViewController)
+//        show(socialViewController, sender: self)
     }
     func saveFriendBookFailHandler(_ errorMessage : String)
     {
@@ -248,11 +251,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         btnAdd.shakeWith(txtSearch, btnSearch)
     }
     
-//    //MARK: - Text change event
-//    @objc func textFieldDidChange(_ textField: UITextField) {
-//
-//    }
-    //MARK: - Constraints
+    //MARK: - Applying contraints
     private func applyContraints()
     {
   
@@ -285,15 +284,8 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         navbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         navbar.heightAnchor.constraint(equalToConstant: Contants.navBarItemDimension).isActive = true
         navbar.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-    
-        
-    //        friendCell.translatesAutoresizingMaskIntoConstraints = false
-    //        friendCell.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
-    //        friendCell.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-    //        friendCell.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200).isActive = true
-    //        friendCell.heightAnchor.constraint(equalToConstant: Contants.heightTableViewCell).isActive = true
-    //
     }
+    
     //MARK: - Navbar Action Handlers
     func conjugateTapped()
     {
