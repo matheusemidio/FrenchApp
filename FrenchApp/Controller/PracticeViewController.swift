@@ -16,7 +16,7 @@ class PracticeViewController: UIViewController {
     public var txtPlurFirst : UIEntryView = UIEntryView()
     public var txtPlurSecond : UIEntryView = UIEntryView()
     public var txtPlurThird : UIEntryView = UIEntryView()
-    public var btnSubmit : UIButton = UIButton()
+//    public var btnSubmit : UIButton = UIButton()
     public var progressView : UIProgressTimerView = UIProgressTimerView()
     public var lblVerb : UILabel = UILabel()
     public var lblTense : UILabel = UILabel()
@@ -59,17 +59,17 @@ class PracticeViewController: UIViewController {
         txtPlurThird.capitalizationType = .none
 
     }
-    private func fixButton()
-    {
-        btnSubmit.setTitle(Strings_En.buttonSubmitTitle, for: .normal)
-//        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
-        btnSubmit.backgroundColor = UIColor(named: Contants.frenchBlue)
-        btnSubmit.titleLabel?.font =  UIFont(name: "...", size: 30)
-        
-        let tapSubmit = UITapGestureRecognizer(target: self, action: #selector(btnSubmitTouchUp))
-        self.btnSubmit.addGestureRecognizer(tapSubmit)
-        self.btnSubmit.isUserInteractionEnabled = true
-    }
+//    private func fixButton()
+//    {
+//        btnSubmit.setTitle(Strings_En.buttonSubmitTitle, for: .normal)
+////        btnUpdate.tintColor = UIColor(named: Contants.frenchBlue)
+//        btnSubmit.backgroundColor = UIColor(named: Contants.frenchBlue)
+//        btnSubmit.titleLabel?.font =  UIFont(name: "...", size: 30)
+//
+//        let tapSubmit = UITapGestureRecognizer(target: self, action: #selector(btnSubmitTouchUp))
+//        self.btnSubmit.addGestureRecognizer(tapSubmit)
+//        self.btnSubmit.isUserInteractionEnabled = true
+//    }
     private func fixLabels()
     {
         lblVerb.font = UIFont.systemFont(ofSize: 30)
@@ -117,8 +117,8 @@ class PracticeViewController: UIViewController {
     //MARK: - Initialize function
     private func initialize()
     {
-        self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnSubmit, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense, progressView)
-        fixButton()
+        self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense, progressView)
+//        fixButton()
         setPlaceholders()
         applyContraints()
         fixLabels()
@@ -133,7 +133,7 @@ class PracticeViewController: UIViewController {
         txtPlurFirst.translatesAutoresizingMaskIntoConstraints = false
         txtPlurSecond.translatesAutoresizingMaskIntoConstraints = false
         txtPlurThird.translatesAutoresizingMaskIntoConstraints = false
-        btnSubmit.translatesAutoresizingMaskIntoConstraints = false
+//        btnSubmit.translatesAutoresizingMaskIntoConstraints = false
         progressView.translatesAutoresizingMaskIntoConstraints = false
         lblVerb.translatesAutoresizingMaskIntoConstraints = false
         lblTense.translatesAutoresizingMaskIntoConstraints = false
@@ -195,26 +195,26 @@ class PracticeViewController: UIViewController {
         progressView.topAnchor.constraint(equalTo: txtPlurThird.bottomAnchor).isActive = true
         progressView.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        btnSubmit.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        btnSubmit.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-//        btnSubmit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        btnSubmit.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 5).isActive = true
-        btnSubmit.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        btnSubmit.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+//        btnSubmit.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+////        btnSubmit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+//        btnSubmit.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 5).isActive = true
+//        btnSubmit.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
     
-    //MARK: - Submit action handlers
-    @objc func btnSubmitTouchUp()
-    {
-        getAnswers()
-        Toast.show(view: self, title: Strings_En.ToastFinishTimeTitle, message: Strings_En.ToastFinishConjugationMessage )
-        //Pass the answers, verb and tense selected
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
-//        show(correctionViewController, sender: self)
-//        print("Submit tapped")
-        goToNextScreen()
-    }
+//    //MARK: - Submit action handlers
+//    @objc func btnSubmitTouchUp()
+//    {
+//        getAnswers()
+//        Toast.show(view: self, title: Strings_En.ToastFinishTimeTitle, message: Strings_En.ToastFinishConjugationMessage )
+//        //Pass the answers, verb and tense selected
+////        let main = UIStoryboard(name: "Main", bundle: nil)
+////        let correctionViewController = main.instantiateViewController(withIdentifier: Segue.CorrectionViewController)
+////        show(correctionViewController, sender: self)
+////        print("Submit tapped")
+//        goToNextScreen()
+//    }
     
     //MARK: - Get Answers action handler
     func getAnswers()

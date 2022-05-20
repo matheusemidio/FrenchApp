@@ -123,6 +123,7 @@ class UIFriendCell : UITableViewCell {
 //        self.lblName.text = "Matheus"
 //        self.lblStreakNumber.text = "10"
         self.lblName.text = friendModel.getFullName()
-        self.number = 10
+        self.number = friendModel.conjugationStreak
+//        self.number = 10
     }
 }

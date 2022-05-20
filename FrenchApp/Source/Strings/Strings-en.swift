@@ -11,10 +11,10 @@ import UIKit
 enum Strings_En
 {
     //Debug purposes
-    static let hardcodedEmail : String = "tony2@me.com"
-    static let hardcodedPassword : String = "123456"
-    static let hardcodedPracticeVerb : String = "Avoir"
-    static let hardcodedPracticeTense : String = "Present"
+    static let hardcodedEmail : String = ""
+    static let hardcodedPassword : String = ""
+    static let hardcodedPracticeVerb : String = ""
+    static let hardcodedPracticeTense : String = ""
 
     //Entries placeholder
     static let email : String = "Email address"
@@ -69,6 +69,9 @@ enum Strings_En
     static let ToastFailVerbSearchTitle : String  = "Fail"
     static let ToastSuccessConjugateSetupMessage : String  = "The practice is about to start."
     static let ToastSuccessConjugateSetupTitle : String  = "Success"
+    static let ToastVerbAlreadyConjugatedMessage : String  = "This verb was already conjugated on your current streak."
+    static let ToastVerbAlreadyConjugatedTitle : String  = "Fail"
+    
     
     //Button titles
     static let buttonConjugateTitle : String  = "Conjugate now"

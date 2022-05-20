@@ -70,7 +70,7 @@
         <!--Register View Controller-->
         <scene sceneID="CCE-kH-6Hf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ySI-40-cWG" customClass="RegisterViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" modalPresentationStyle="fullScreen" id="ySI-40-cWG" customClass="RegisterViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVy-3P-3MY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,7 @@
         <!--Login View Controller-->
         <scene sceneID="DBX-uI-23u">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Rc9-AN-GPk" customClass="LoginViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="Rc9-AN-GPk" customClass="LoginViewController" customModule="FrenchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cnt-gQ-g4P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

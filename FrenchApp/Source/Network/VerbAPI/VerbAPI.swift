@@ -23,8 +23,9 @@ class VerbAPI: Decodable {
         let baseURL = "https://french-conjugaison.p.rapidapi.com/conjugate/"
         let endPoint = "\(verb)"
 
-        
         let method = "GET"
+       
+
         let header = ["" : "",
                       "" : ""]
         

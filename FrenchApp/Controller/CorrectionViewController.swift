@@ -176,8 +176,8 @@ class CorrectionViewController: UIViewController {
         verbCorrectionModel.tense = Contants.tensePractice
         
 //MARK: - Change this after debug
-//        var conjugationCheckerSupport = Contants.conjugationChecker as! [String : String]
-        var conjugationCheckerSupport = Contants.conjugationCheckerDebugger as! [String : String]
+        var conjugationCheckerSupport = Contants.conjugationChecker as! [String : String]
+//        var conjugationCheckerSupport = Contants.conjugationCheckerDebugger as! [String : String]
 
         var comparissonStringNormal : String = ""
         let lowerBoundNormal = String.Index(encodedOffset: 0)
@@ -227,12 +227,6 @@ class CorrectionViewController: UIViewController {
     //MARK: - Check corrections
     private func checkCorrection()
     {
-        //            self.conjugation["1Sing"] = ""
-        //            self.conjugation["2Sing"] = ""
-        //            self.conjugation["3Sing"] = ""
-        //            self.conjugation["1Plur"] = ""
-        //            self.conjugation["2Plur"] = ""
-        //            self.conjugation["3Plur"]
         var userAnswerDebug = Contants.verbAnswered.conjugation
         var apiAnswerDebug = Contants.verbAPIConjugatedModel.conjugation
         
@@ -252,12 +246,6 @@ class CorrectionViewController: UIViewController {
     //MARK: - Correction modifiers
     func displayCorrectionColors()
     {
-//        public var txtSingFirst : UILabelView = UILabelView()
-//        public var txtSingSecond : UILabelView = UILabelView()
-//        public var txtSingThird : UILabelView = UILabelView()
-//        public var txtPlurFirst : UILabelView = UILabelView()
-//        public var txtPlurSecond : UILabelView = UILabelView()
-//        public var txtPlurThird : UILabelView = UILabelView()
         self.txtSingFirst.txtEntry.backgroundColor = self.correctionFeedback[0] == true ? .green : .red
         self.txtSingSecond.txtEntry.backgroundColor = self.correctionFeedback[1] == true ? .green : .red
         self.txtSingThird.txtEntry.backgroundColor = self.correctionFeedback[2] == true ? .green : .red
@@ -291,12 +279,21 @@ class CorrectionViewController: UIViewController {
         if(allAnswersCorrect == true)
         {
             //Increment users streak number
-            
+            Contants.loggedUser.conjugationStreak += 1
             //Add verb to user's list of verbs
-            
-            Contants.loggedUser.save(successHandler: saveUserSucessHandler, failHandler: saveUserFailHandler)
-
+            Contants.loggedUser.listOfVerbs.append(Contants.verbPractice)
         }
+        else
+        {
+            //Set the conjugation streak to zero
+            Contants.loggedUser.conjugationStreak = 0
+            
+            //Remove the verbs from the list of verbs conjugated
+            Contants.loggedUser.listOfVerbs.removeAll()
+            Contants.loggedUser.listOfVerbs.append("")
+        }
+        Contants.loggedUser.save(successHandler: saveUserSucessHandler, failHandler: saveUserFailHandler)
+
     }
     
     //MARK: - Save User action handlers

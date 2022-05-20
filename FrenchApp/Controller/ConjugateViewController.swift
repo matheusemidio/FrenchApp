@@ -244,15 +244,32 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
                 }
             }
             if(verbExist == true){
-//MARK: - Uncomment this after debug
-//                VerbAPI.getVerbConjugation(verb: verbSearched.lowercased(), successHandler: findVerbSuccessHandler, failHandler: findVerbFailHandler)
                 
+                var wasAlreadyConjugated = false
+                //Check if the logged user already conjugated this verb before
+                for verb in Contants.loggedUser.listOfVerbs
+                {
+                    if(verb == verbSearched)
+                    {
+                        wasAlreadyConjugated = true
+                    }
+                }
+                if(wasAlreadyConjugated == false)
+                {
+                    //MARK: - Uncomment this after debug
+                    VerbAPI.getVerbConjugation(verb: verbSearched.lowercased(), successHandler: findVerbSuccessHandler, failHandler: findVerbFailHandler)
+                                    
+                    self.verbToBeConjugated = verbSearched
+                    Contants.verbPractice = verbSearched
+                    //MARK: - Comment this after debug
+//                                    goToNextScreen()
+                }
+                else
+                {
+                    Toast.show(view: self, title: Strings_En.ToastVerbAlreadyConjugatedTitle, message: Strings_En.ToastVerbAlreadyConjugatedMessage)
+
+                }
                 
-//                Toast.show(view: self, title: "Debug", message: "The verb searched is \(self.verbToBeConjugated) and the tense selected is \(self.tenseToBeConjugated)")
-                self.verbToBeConjugated = verbSearched
-                Contants.verbPractice = verbSearched
-//MARK: - Comment this after debug
-                goToNextScreen()
             }
             else{
                 Toast.show(view: self, title: Strings_En.ToastFailVerbSearchTitle, message: Strings_En.ToastFailVerbSearchMessage)
@@ -297,10 +314,9 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
             }
             
 //            Contants.verbPractice = self.verbSearched
-//                show(practiceViewController, sender: self)
-//            Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
             DispatchQueue.main.async
             {
+                Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
                 self.goToNextScreen()
             }
         }

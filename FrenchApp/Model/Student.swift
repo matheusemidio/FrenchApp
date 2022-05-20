@@ -18,6 +18,8 @@ class Student : Codable
     var email : String
     var age : String
     var conjugationStreak : Int
+    var listOfVerbs : [String] = []
+    
     
     init()
     {
@@ -26,6 +28,7 @@ class Student : Codable
         self.email = ""
         self.age = ""
         self.conjugationStreak = 0
+        self.listOfVerbs.append("")
     }
     init(firstName : String, lastName : String, email : String, age : String)
     {
@@ -34,6 +37,7 @@ class Student : Codable
         self.email = email
         self.age = age
         self.conjugationStreak = 0
+        self.listOfVerbs.append("")
     }
     func getFullName() -> String
     {
