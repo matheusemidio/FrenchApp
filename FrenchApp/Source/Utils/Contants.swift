@@ -4,7 +4,6 @@
 //
 //  Created by Matheus Cadena on 2022-05-06.
 //
-
 import CoreGraphics
 
 
@@ -24,7 +23,7 @@ struct Contants
     static var conjugationChecker : Any = ""
     static var verbAPIConjugatedModel : Verb = Verb()
     static var verbAnswered : Verb = Verb()
-    
+    static var listOfAllStudentsSupport : [Student]?
     static var conjugationCheckerDebugger : [String : String] = [ "indicatifPresentI": "je vais",
                                                                 "indicatifPresentYou": "tu vas",
                                                                 "indicatifPresentHeSheIt": "il/elle/on va",

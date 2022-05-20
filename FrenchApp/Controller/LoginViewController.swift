@@ -4,7 +4,6 @@
 //
 //  Created by Matheus Cadena on 2022-05-05.
 //
-
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -15,7 +14,6 @@ class LoginViewController: UIViewController {
     public var timer : Timer = Timer()
 
     //MARK: - Declaration of variables
-
     
     //MARK: - Declaration of outlets
     @IBOutlet weak var btnLoginOutlet: UIButton!
@@ -129,8 +127,9 @@ class LoginViewController: UIViewController {
                 Contants.loggedFriendBook.listOfFriends.append(friend)
             }
         }
-        Toast.show(view: self, title: Strings_En.ToastLogInSuccessTitle, message: Strings_En.ToastLogInSuccessMessage)
-        goToNextScreen()
+//        Toast.show(view: self, title: Strings_En.ToastLogInSuccessTitle, message: Strings_En.ToastLogInSuccessMessage)
+        Student.findAll(successHandler: findAllStudentsSuccessHandler, failHandler: findAllStudentsFailHandler)
+//        goToNextScreen()
         
     }
     
@@ -139,6 +138,16 @@ class LoginViewController: UIViewController {
         print(errorMessage)
     }
     
+    func findAllStudentsSuccessHandler(listOfStudents : [Student])
+    {
+        Contants.listOfAllStudentsSupport = listOfStudents
+        Toast.show(view: self, title: Strings_En.ToastLogInSuccessTitle, message: Strings_En.ToastLogInSuccessMessage)
+        goToNextScreen()
+    }
+    func findAllStudentsFailHandler(error : String)
+    {
+        print(error)
+    }
     //MARK: - Segue
     func goToNextScreen()
     {

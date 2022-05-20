@@ -24,7 +24,9 @@ class VerbAPI: Decodable {
         let endPoint = "\(verb)"
 
         let method = "GET"
-       
+        
+        
+  
 
         let header = ["" : "",
                       "" : ""]

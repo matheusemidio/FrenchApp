@@ -216,7 +216,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "11953F50-6C97-4EE3-9F1E-F49EE5480E2C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FrenchApp/Source/Strings/Strings-en.swift"
@@ -226,22 +226,6 @@
             endingLineNumber = "50"
             landmarkName = "Strings_En"
             landmarkType = "13">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "34B14723-55C7-46BE-BA8D-812734A96FF3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FrenchApp/Controller/SocialViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "findAllStudentsSuccessHandler(listOfStudents:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -471,16 +455,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2589BC8A-0003-4662-9D71-65B2A9C1883E"
+            uuid = "557452E9-3EBB-489D-A228-CC1A7514F7C8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FrenchApp/Controller/SocialViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "btnSearchTouchUp()"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "updateListOfFriendsVersion()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

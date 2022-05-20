@@ -4,7 +4,6 @@
 //
 //  Created by Matheus Cadena on 2022-05-10.
 //
-
 import UIKit
 
 private let identifier : String = "UIFriendCell"
@@ -24,6 +23,7 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     var searchedEmail : String?
     var searchedStudent : Student?
     var testBook : FriendBook?
+//    var listOfAllStudentsSupport : [Student]?
     
     //MARK: - Declaration of outlets
     @IBOutlet weak var tableView : UITableView!
@@ -62,7 +62,6 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     //
     //        refreshControl.addTarget(self, action: #selector(tableRefreshControl), for: UIControl.Event.valueChanged)
     //        tvTransactionsOutlet.addSubview(refreshControl)
-
     }
     private func fixButton()
     {
@@ -90,7 +89,6 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         txtSearch.title = Strings_En.searchFriend
         txtSearch.capitalizationType = .none
 //        txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-
     }
     //MARK: - Initialize Function
     private func initialize()
@@ -103,7 +101,8 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         refreshListOfFriends()
         fixButton()
         fixEntry()
-        
+        updateListOfFriendsVersion()
+
         
     }
     override func viewDidAppear(_ animated: Bool)
@@ -119,7 +118,6 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         return (Contants.loggedFriendBook.listOfFriends.count - 1)
 //        return self.testBook!.listOfFriends.count
 //        return self.friendBook.listOfFriends.count
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -250,6 +248,19 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
         print("SaveFail -> \(errorMessage)")
         btnAdd.shakeWith(txtSearch, btnSearch)
     }
+    //MARK: - Friend Book init
+    private func updateListOfFriendsVersion()
+    {
+        for (index, element) in Contants.loggedFriendBook.listOfFriends.enumerated() {
+            for student in Contants.listOfAllStudentsSupport!
+            {
+                if(student.email == element.email)
+                {
+                    Contants.loggedFriendBook.listOfFriends[index] = student
+                }
+            }
+        }
+    }
     
     //MARK: - Applying contraints
     private func applyContraints()
@@ -318,4 +329,3 @@ class SocialViewController: UIViewController, UINavbarDelegate, UITableViewDeleg
     }
     
 }
-
