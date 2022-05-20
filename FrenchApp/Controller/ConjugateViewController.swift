@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+{
+    
 
     //MARK: - Declaration of views
     public var navbar : UINavbar = UINavbar()
@@ -49,6 +51,7 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
     private func setPlaceholders()
     {
         txtVerb.title = Strings_En.verbSearch
+        txtVerb.capitalizationType = .none
 //        txtTense.title = Strings_En.tenseSearch
         txtVerb.isHidden = true
 //        txtTense.isHidden = true
@@ -184,145 +187,128 @@ class ConjugateViewController: UIViewController, UINavbarDelegate, UIPickerViewD
         print("\nVerb mode ->" + self.verbMode)
         print("Tense mode ->" + self.tenseMode)
     }
-
+    //MARK: - Segue
+    func goToNextScreen()
+    {
+        var counter = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            //Call function to submit programatically
+            counter += 1
+            if(counter >= 3)
+            {
+                timer.invalidate()
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
+                self.show(practiceViewController, sender: self)
+            }
+      
+        })
+    }
     //MARK: - Conjugate action handlers
     @objc func btnConjugateTouchUp()
     {
-        if(self.tenseMode == Strings_En.pickerRandomTense)
-        {
+        if(self.tenseMode == Strings_En.pickerRandomTense){
             //Perform the random choice
             let n = Int.random(in: 1...8)
             self.tenseToBeConjugated = pickerData[1][n]
         }
-        else
-        {
+        else{
             self.tenseToBeConjugated = self.tenseMode
         }
         Contants.tensePractice = self.tenseToBeConjugated
-//        practiceViewControlerData.tenseData = self.tenseToBeConjugated
-        
-        if(txtVerb.isHidden == true)
-        {
-            
-            if(self.verbMode == Strings_En.pickerSearchVerb)
-            {
+        if(txtVerb.isHidden == true){
+            if(self.verbMode == Strings_En.pickerSearchVerb){
                 txtVerb.isHidden = false
             }
-            else if(self.verbMode == Strings_En.pickerRandomVerb)
-            {
+            else if(self.verbMode == Strings_En.pickerRandomVerb){
                 //Get random verb and perform segue
                 let n = Int.random(in: 0...ExistingVerbsList.arrayOfVerbs.count)
                 self.verbToBeConjugated = ExistingVerbsList.arrayOfVerbs[n]
                 Contants.verbPractice = self.verbToBeConjugated
                 Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
                 goToNextScreen()
-
-//                show(practiceViewController, sender: self)
             }
-           
             self.alreadyClicked = true
             return
         }
-        else if(txtVerb.isHidden == false && self.alreadyClicked == true)
-        {
-            guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else
-            {
+        else if(txtVerb.isHidden == false && self.alreadyClicked == true){
+            guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else{
                 btnConjugate.shakeWith(txtVerb)
                 return
             }
-            //Toast.show(view: self, title: "Debug", message: "Second click -> Ready to perform the segue")
-            //Before performing the Segue, get the API verb and tense for the next screen
-            //Also, check and verify if the searched was valid
-//            practiceViewControlerData.verbData = verbSearched
             var verbExist = false
-            for verb in ExistingVerbsList.arrayOfVerbs
-            {
+            for verb in ExistingVerbsList.arrayOfVerbs{
                 if(verbSearched.lowercased() == verb)
                 {
                     verbExist = true
                 }
             }
-            if(verbExist == true)
-            {
-                Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
-
+            if(verbExist == true){
+//MARK: - Uncomment this after debug
+//                VerbAPI.getVerbConjugation(verb: verbSearched.lowercased(), successHandler: findVerbSuccessHandler, failHandler: findVerbFailHandler)
+                
+                
+//                Toast.show(view: self, title: "Debug", message: "The verb searched is \(self.verbToBeConjugated) and the tense selected is \(self.tenseToBeConjugated)")
+                self.verbToBeConjugated = verbSearched
                 Contants.verbPractice = verbSearched
-//                show(practiceViewController, sender: self)
+//MARK: - Comment this after debug
                 goToNextScreen()
             }
-            else
-            {
+            else{
                 Toast.show(view: self, title: Strings_En.ToastFailVerbSearchTitle, message: Strings_En.ToastFailVerbSearchMessage)
             }
-            
-            
         }
         
-        //MARK: - Segue
-        func goToNextScreen()
-        {
-            var counter = 0
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-                //Call function to submit programatically
-                counter += 1
-                if(counter >= 3)
-                {
-                    timer.invalidate()
-                    let main = UIStoryboard(name: "Main", bundle: nil)
-                    let practiceViewController = main.instantiateViewController(withIdentifier: Segue.PracticeViewController)
-                    self.show(practiceViewController, sender: self)
-                }
-          
-            })
-        }
 
-        
-//        if(txtVerb.isHidden == true && txtTense.isHidden == true)
-//        {
-//            if(self.verbMode == Strings_En.pickerSearchVerb)
-//            {
-//                txtVerb.isHidden = false
-//            }
-//            if(self.tenseMode == Strings_En.pickerSearchTense)
-//            {
-//                txtTense.isHidden = false
-//            }
-//            else if((self.verbMode == Strings_En.pickerRandomVerb) && (self.tenseMode == Strings_En.pickerRandomTense))
-//            {
-////                Toast.show(view: self, title: "Debug", message: "Random -> Ready to perform the segue.")
-//                //Before performing the Segue, get the API verb and tense for the next screen
-//                show(practiceViewController, sender: self)
-//                
-//            }
-//            self.alreadyClicked = true
-//            return
-//        }
-//        else if((txtVerb.isHidden == false || txtTense.isHidden == false) && self.alreadyClicked == true)
-//        {
-//            if(txtVerb.isHidden == false)
-//            {
-//                guard let verbSearched = txtVerb.txtEntry.text, verbSearched != "" else
-//                {
-//                    btnConjugate.shakeWith(txtVerb)
-//                    return
-//                }
-//            }
-//            else if(txtTense.isHidden == false)
-//            {
-//                guard let tenseSearched = txtTense.txtEntry.text, tenseSearched != "" else
-//                {
-//                    btnConjugate.shakeWith(txtTense)
-//                    return
-//                }
-//            }
-//
-////            Toast.show(view: self, title: "Debug", message: "Second click -> Ready to perform the segue")
-//            //Before performing the Segue, get the API verb and tense for the next screen
-//            //Also, check and verify if the searched was valid
-//            show(practiceViewController, sender: self)
-//
-//        }
-        
     }
 
+        //MARK: - Find Verb action handlers
+        func findVerbSuccessHandler(_ httpStatusCode : Int, _ response : [String: Any])
+        {
+            if(httpStatusCode == 200)
+            {
+                guard let data = response["data"] as? [String : Any] else {
+                    return
+                }
+                
+                var indicatifDict : [String : Any] = data["indicatif"]! as! [String : Any]
+                var conjugation : Any = ""
+                var tenseConjugation : String = ""
+                
+                for (key, value) in Strings_En.pickerTensesDict
+                {
+                    if(key == self.tenseToBeConjugated)
+                    {
+                        tenseConjugation = value
+                        break
+                    }
+                }
+                conjugation = indicatifDict[tenseConjugation]
+//                for (key, value) in indicatifDict
+//                {
+//                    if(key == tenseConjugation)
+//                    {
+//                        conjugation = value
+//                        break
+//                    }
+//                }
+                Contants.conjugationChecker = conjugation
+                print(conjugation)
+            }
+            
+//            Contants.verbPractice = self.verbSearched
+//                show(practiceViewController, sender: self)
+//            Toast.show(view: self, title: Strings_En.ToastSuccessConjugateSetupTitle, message: Strings_En.ToastSuccessConjugateSetupMessage)
+            DispatchQueue.main.async
+            {
+                self.goToNextScreen()
+            }
+        }
+        func findVerbFailHandler(_ httpStatusCode : Int, _ errorMessage: String)
+        {
+            print(errorMessage)
+        }
 }
+
+
+

@@ -96,7 +96,7 @@ enum Strings_En
     static let pickerPasseAnterieur : String = "Passe anterieur"
     static let pickerPlusQueParfait : String = "Plus que parfait"
     static let pickerFuturAnterieur : String = "Futur anterieur"
-    static let pickerTensesDict : [String : String] = ["Present" : "present", "Passe simple" : "passeSimple", "Imparfait" : "imparfait", "Passe compose" : "passeCompose", "Futur simple" : "futurSimple", "Passe anterieur" :  "plusQueParfait", "Plus que parfait" : "plusQueParfait",  "Futur anterieur" : "futurAnterieur"]
+    static let pickerTensesDict : [String : String] = ["Present" : "present", "Passe simple" : "passeSimple", "Imparfait" : "imparfait", "Passe compose" : "passeCompose", "Futur simple" : "futurSimple", "Passe anterieur" :  "passeAnterieur", "Plus que parfait" : "plusQueParfait",  "Futur anterieur" : "futurAnterieur"]
 
 
     

@@ -21,6 +21,16 @@ struct Contants
     static var loggedFriendBook : FriendBook = FriendBook()
     static var verbPractice : String = ""
     static var tensePractice : String = ""
+    static var conjugationChecker : Any = ""
+    static var verbAPIConjugatedModel : Verb = Verb()
+    static var verbAnswered : Verb = Verb()
+    
+    static var conjugationCheckerDebugger : [String : String] = [ "indicatifPresentI": "je vais",
+                                                                "indicatifPresentYou": "tu vas",
+                                                                "indicatifPresentHeSheIt": "il/elle/on va",
+                                                                 "indicatifPresentWe": "nous allons",
+                                                                 "indicatifPresentYouAll": "vous allez",
+                                                                 "indicatifPresentThey": "ils/elles vont"]
 
     
 //    static var language : String = "english"

@@ -23,7 +23,9 @@ class CorrectionViewController: UIViewController {
     public var lblSelectedTense : UILabel = UILabel()
     
     //MARK: - Declaration of variables
-
+    public var correctionFeedback : [Bool] = Array(repeating: false, count: 6)
+    
+//    var myArray = Array(repeating: 0, count: 4)
     //MARK: - Declaration of outlets
     
     //MARK: - View load
@@ -62,21 +64,25 @@ class CorrectionViewController: UIViewController {
         lblSelectedVerb.font = UIFont.systemFont(ofSize: 20)
         lblSelectedVerb.textColor = .black
         lblSelectedVerb.textAlignment = .center
-        lblSelectedVerb.text = Strings_En.hardcodedPracticeVerb
+        lblSelectedVerb.text = Contants.verbPractice
         
         lblSelectedTense.font = UIFont.systemFont(ofSize: 20)
         lblSelectedTense.textColor = .black
         lblSelectedTense.textAlignment = .center
-        lblSelectedTense.text = Strings_En.hardcodedPracticeTense
+        lblSelectedTense.text = Contants.tensePractice
     }
     //MARK: - Initialize function
     private func initialize()
     {
         self.view.addSubviews(txtSingFirst, txtSingSecond, txtSingThird, txtPlurFirst, txtPlurSecond, txtPlurThird, btnReturn, lblVerb, lblTense,lblSelectedVerb, lblSelectedTense)
         fixButton()
-        checkCorrection()
         applyContraints()
         fixLabels()
+        transformIntoVerbModel()
+        checkCorrection()
+        displayCorrectionText()
+        displayCorrectionColors()
+        checkSreakImplementation()
     }
     //MARK: - Applying constraints
     private func applyContraints()
@@ -153,21 +159,155 @@ class CorrectionViewController: UIViewController {
     //MARK: - Navbar Action Handlers
     @objc func btnReturnTouchUp()
     {
+        
         let main = UIStoryboard(name: "Main", bundle: nil)
         let conjugateViewController = main.instantiateViewController(withIdentifier: Segue.ConjugateViewController)
         show(conjugateViewController, sender: self)
 
         print("Return tapped")
     }
-    //MARK: - Check correction function
+    
+    
+    
+    //MARK: - Transform into model architecture
+    func transformIntoVerbModel()
+    {
+        var verbCorrectionModel = Verb()
+        verbCorrectionModel.tense = Contants.tensePractice
+        
+//MARK: - Change this after debug
+//        var conjugationCheckerSupport = Contants.conjugationChecker as! [String : String]
+        var conjugationCheckerSupport = Contants.conjugationCheckerDebugger as! [String : String]
+
+        var comparissonStringNormal : String = ""
+        let lowerBoundNormal = String.Index(encodedOffset: 0)
+        let upperBoundNormal = String.Index(encodedOffset: 1)
+        
+        var comparissonStringException : String = ""
+        let lowerBoundException = String.Index(encodedOffset: 0)
+        let upperBoundException = String.Index(encodedOffset: 3)
+        
+        for (key, value) in conjugationCheckerSupport
+        {
+            comparissonStringNormal = String(value[lowerBoundNormal..<upperBoundNormal])
+            comparissonStringException = String(value[lowerBoundException..<upperBoundException])
+
+            switch(comparissonStringNormal)
+            {
+            case "j":
+                verbCorrectionModel.conjugation["1Sing"] = value
+                break
+            case "t":
+                verbCorrectionModel.conjugation["2Sing"] = value
+                break
+            case "n":
+                verbCorrectionModel.conjugation["1Plur"] = value
+                break
+            case "v":
+                verbCorrectionModel.conjugation["2Plur"] = value
+                break
+            default:
+                break
+            }
+            switch(comparissonStringException)
+            {
+            case "il/":
+                verbCorrectionModel.conjugation["3Sing"] = value
+                break
+            case "ils":
+                verbCorrectionModel.conjugation["3Plur"] = value
+                break
+            default:
+                break
+            }
+        }
+        Contants.verbAPIConjugatedModel = verbCorrectionModel
+    }
+    
+    //MARK: - Check corrections
     private func checkCorrection()
     {
-//        txtSingFirst.title = Strings_En.singFirst
-//        txtSingSecond.title = Strings_En.singSecond
-//        txtSingThird.title = Strings_En.singThird
-//        txtPlurFirst.title = Strings_En.plurFirst
-//        txtPlurSecond.title = Strings_En.plurSecond
-//        txtPlurThird.title = Strings_En.plurThird
+        //            self.conjugation["1Sing"] = ""
+        //            self.conjugation["2Sing"] = ""
+        //            self.conjugation["3Sing"] = ""
+        //            self.conjugation["1Plur"] = ""
+        //            self.conjugation["2Plur"] = ""
+        //            self.conjugation["3Plur"]
+        var userAnswerDebug = Contants.verbAnswered.conjugation
+        var apiAnswerDebug = Contants.verbAPIConjugatedModel.conjugation
+        
+        self.correctionFeedback[0] = Contants.verbAPIConjugatedModel.conjugation["1Sing"] == Contants.verbAnswered.conjugation["1Sing"] ? true : false
+        self.correctionFeedback[1] = Contants.verbAPIConjugatedModel.conjugation["2Sing"] == Contants.verbAnswered.conjugation["2Sing"] ? true : false
+        self.correctionFeedback[2] = Contants.verbAPIConjugatedModel.conjugation["3Sing"] == Contants.verbAnswered.conjugation["3Sing"] ? true : false
+        self.correctionFeedback[3] = Contants.verbAPIConjugatedModel.conjugation["1Plur"] == Contants.verbAnswered.conjugation["1Plur"] ? true : false
+        self.correctionFeedback[4] = Contants.verbAPIConjugatedModel.conjugation["2Plur"] == Contants.verbAnswered.conjugation["2Plur"] ? true : false
+        self.correctionFeedback[5] = Contants.verbAPIConjugatedModel.conjugation["3Plur"] == Contants.verbAnswered.conjugation["3Plur"] ? true : false
+
+//        if(Contants.verbAPIConjugatedModel.conjugation[] == Contants.verbAnswered.conjugation[])
+//        {
+//            self.correctionFeedback[0] = true
+//        }
+    }
+    
+    //MARK: - Correction modifiers
+    func displayCorrectionColors()
+    {
+//        public var txtSingFirst : UILabelView = UILabelView()
+//        public var txtSingSecond : UILabelView = UILabelView()
+//        public var txtSingThird : UILabelView = UILabelView()
+//        public var txtPlurFirst : UILabelView = UILabelView()
+//        public var txtPlurSecond : UILabelView = UILabelView()
+//        public var txtPlurThird : UILabelView = UILabelView()
+        self.txtSingFirst.txtEntry.backgroundColor = self.correctionFeedback[0] == true ? .green : .red
+        self.txtSingSecond.txtEntry.backgroundColor = self.correctionFeedback[1] == true ? .green : .red
+        self.txtSingThird.txtEntry.backgroundColor = self.correctionFeedback[2] == true ? .green : .red
+        self.txtPlurFirst.txtEntry.backgroundColor = self.correctionFeedback[3] == true ? .green : .red
+        self.txtPlurSecond.txtEntry.backgroundColor = self.correctionFeedback[4] == true ? .green : .red
+        self.txtPlurThird.txtEntry.backgroundColor = self.correctionFeedback[5] == true ? .green : .red
+
+    }
+    func displayCorrectionText()
+    {
+        self.txtSingFirst.newText = Contants.verbAPIConjugatedModel.conjugation["1Sing"]!
+        self.txtSingSecond.newText = Contants.verbAPIConjugatedModel.conjugation["2Sing"]!
+        self.txtSingThird.newText = Contants.verbAPIConjugatedModel.conjugation["3Sing"]!
+        self.txtPlurFirst.newText = Contants.verbAPIConjugatedModel.conjugation["1Plur"]!
+        self.txtPlurSecond.newText = Contants.verbAPIConjugatedModel.conjugation["2Plur"]!
+        self.txtPlurThird.newText = Contants.verbAPIConjugatedModel.conjugation["3Plur"]!
+
+    }
+     
+    func checkSreakImplementation()
+    {
+        var allAnswersCorrect = true
+        for element in self.correctionFeedback
+        {
+            if(element == false)
+            {
+                allAnswersCorrect = false
+            }
+        }
+        
+        if(allAnswersCorrect == true)
+        {
+            //Increment users streak number
+            
+            //Add verb to user's list of verbs
+            
+            Contants.loggedUser.save(successHandler: saveUserSucessHandler, failHandler: saveUserFailHandler)
+
+        }
+    }
+    
+    //MARK: - Save User action handlers
+    func saveUserSucessHandler()
+    {
+        print("The new student was saved")
+ 
+    }
+    func saveUserFailHandler(_ errorMessage : String)
+    {
+        print("SaveFail -> \(errorMessage)")
     }
 
 }

@@ -112,9 +112,6 @@ class PracticeViewController: UIViewController {
             }
         })
         
-        
-        
-        
     }
 
     //MARK: - Initialize function
@@ -222,14 +219,47 @@ class PracticeViewController: UIViewController {
     //MARK: - Get Answers action handler
     func getAnswers()
     {
-        let singFirst = txtSingFirst.txtEntry.text != nil ? txtSingFirst.txtEntry.text : ""
-        let singSecond = txtSingSecond.txtEntry.text != nil ? txtSingSecond.txtEntry.text : ""
-        let singThird = txtSingThird.txtEntry.text != nil ? txtSingThird.txtEntry.text : ""
-        let plurFirst = txtPlurFirst.txtEntry.text != nil ? txtPlurFirst.txtEntry.text : ""
-        let plurSecond = txtPlurSecond.txtEntry.text != nil ? txtPlurSecond.txtEntry.text : ""
-        let plurThird = txtPlurThird.txtEntry.text != nil ? txtPlurThird.txtEntry.text : ""
+        let singFirst = txtSingFirst.txtEntry.text != nil ? txtSingFirst.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        let singSecond = txtSingSecond.txtEntry.text != nil ? txtSingSecond.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)  : ""
+        let singThird = txtSingThird.txtEntry.text != nil ? txtSingThird.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)  : ""
+        let plurFirst = txtPlurFirst.txtEntry.text != nil ? txtPlurFirst.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)  : ""
+        let plurSecond = txtPlurSecond.txtEntry.text != nil ? txtPlurSecond.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)  : ""
+        let plurThird = txtPlurThird.txtEntry.text != nil ? txtPlurThird.txtEntry.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)  : ""
+        
+        //To correct the problem with the required il/elle/on
+//        let ilLowerBound = String.Index(encodedOffset: 0)
+//        let ilUpperBound = String.Index(encodedOffset: 2)
+//        var ilSupport = ""
+//        ilSupport = String(singThird![ilLowerBound..<ilUpperBound])
+//
+//        let elleLowerBound = String.Index(encodedOffset: 0)
+//        let elleUpperBound = String.Index(encodedOffset: 4)
+//        var elleSupport = ""
+//        elleSupport = String(singThird![elleLowerBound..<elleUpperBound])
+//
+//        let onULowerBound = String.Index(encodedOffset: 0)
+//        let onUpperBound = String.Index(encodedOffset: 2)
+//        var onSupport = ""
+//        onSupport = String(singThird![onULowerBound..<onUpperBound])
+//
+//        
+//        let ilsLowerBound = String.Index(encodedOffset: 0)
+//        let ilsUpperBound = String.Index(encodedOffset: 4)
+//        var ilsSupport = ""
+//        ilsSupport = String(plurThird![ilsLowerBound..<ilsUpperBound])
+//
+//        
+//        let ellesLowerBound = String.Index(encodedOffset: 0)
+//        let ellesUpperBound = String.Index(encodedOffset: 5)
+//        var ellesSupport = ""
+//        ellesSupport = String(plurThird![ellesLowerBound..<ellesUpperBound])
+
+        
+//        comparissonStringException = String(value[lowerBoundException..<upperBoundException])
+
         
         let verb : Verb = Verb(tense: Contants.tensePractice, firstSing: singFirst!, secondSing: singSecond!, thirdSing: singThird!, firstPlur: plurFirst!, secondPlur: plurSecond!, thirdPlur: plurThird!)
+        Contants.verbAnswered = verb
     }
     
     func goToNextScreen()
