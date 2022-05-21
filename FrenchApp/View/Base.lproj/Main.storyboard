@@ -17,17 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🇫🇷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMh-sc-5Fv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇫🇷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMh-sc-5Fv">
                                 <rect key="frame" x="20" y="481" width="374" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9a9-k3-MLe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="97"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWM-2n-gcf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWM-2n-gcf">
                                 <rect key="frame" x="244" y="710" width="170" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="UGK-8J-NXf"/>
+                                    <constraint firstAttribute="width" constant="170" id="fsd-oH-iWw"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
@@ -37,10 +42,13 @@
                                     <segue destination="ySI-40-cWG" kind="show" identifier="fromMain_toRegister" id="1RY-s6-OJe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYb-fd-0rR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYb-fd-0rR">
                                 <rect key="frame" x="0.0" y="710" width="170" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="8dw-oG-FN0"/>
+                                    <constraint firstAttribute="height" constant="101" id="yeT-Q1-XBs"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
@@ -50,9 +58,11 @@
                                     <segue destination="Rc9-AN-GPk" kind="show" identifier="fromMain_toLogin" id="NjC-rW-cev"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="French Conjugation App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-OK-aHR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French Conjugation App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-OK-aHR">
                                 <rect key="frame" x="20" y="388" width="374" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="Qlf-iX-GFH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,6 +70,19 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GMh-sc-5Fv" firstAttribute="top" secondItem="Ica-OK-aHR" secondAttribute="bottom" constant="8" symbolic="YES" id="3Y9-ZF-hX7"/>
+                            <constraint firstItem="NWM-2n-gcf" firstAttribute="leading" secondItem="SYb-fd-0rR" secondAttribute="trailing" constant="74" id="BDK-AM-8JI"/>
+                            <constraint firstItem="Ica-OK-aHR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EKv-d2-Bhf"/>
+                            <constraint firstItem="SYb-fd-0rR" firstAttribute="top" secondItem="GMh-sc-5Fv" secondAttribute="bottom" constant="149" id="G87-8H-Lsc"/>
+                            <constraint firstItem="GMh-sc-5Fv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GxS-do-jbZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GMh-sc-5Fv" secondAttribute="trailing" constant="20" id="JNu-MN-Bge"/>
+                            <constraint firstItem="SYb-fd-0rR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QEp-Hh-noF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ica-OK-aHR" secondAttribute="trailing" constant="20" id="SsM-sg-PSg"/>
+                            <constraint firstItem="NWM-2n-gcf" firstAttribute="leading" secondItem="SYb-fd-0rR" secondAttribute="trailing" constant="74" id="Uga-dt-qvx"/>
+                            <constraint firstItem="Ica-OK-aHR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="Voq-bd-yZr"/>
+                            <constraint firstItem="NWM-2n-gcf" firstAttribute="top" secondItem="GMh-sc-5Fv" secondAttribute="bottom" constant="149" id="i1F-l1-Rpf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PIT-V7-P6p"/>
                 </viewController>
@@ -75,10 +98,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN7-05-Kg8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN7-05-Kg8">
                                 <rect key="frame" x="0.0" y="762" width="414" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="U6R-Dz-0Vq"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
@@ -91,6 +116,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5nb-iX-v74"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
+                        <constraints>
+                            <constraint firstItem="eN7-05-Kg8" firstAttribute="trailing" secondItem="5nb-iX-v74" secondAttribute="trailing" id="HZ1-9a-ZRx"/>
+                            <constraint firstItem="eN7-05-Kg8" firstAttribute="leading" secondItem="5nb-iX-v74" secondAttribute="leading" id="SMU-Ga-1bF"/>
+                            <constraint firstItem="eN7-05-Kg8" firstAttribute="bottom" secondItem="5nb-iX-v74" secondAttribute="bottom" id="cEI-eR-lw6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rXF-Hm-QVn"/>
                     <connections>
@@ -138,9 +168,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-X4-3lE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-X4-3lE">
                                 <rect key="frame" x="20" y="227" width="374" height="442"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g1B-d9-gM3">
@@ -156,6 +185,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HKZ-Mr-FVI"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
+                        <constraints>
+                            <constraint firstItem="oxP-X4-3lE" firstAttribute="top" secondItem="HKZ-Mr-FVI" secondAttribute="top" constant="183" id="1CF-MF-F3k"/>
+                            <constraint firstItem="oxP-X4-3lE" firstAttribute="leading" secondItem="HKZ-Mr-FVI" secondAttribute="leading" constant="20" id="59J-00-KPG"/>
+                            <constraint firstItem="HKZ-Mr-FVI" firstAttribute="trailing" secondItem="oxP-X4-3lE" secondAttribute="trailing" constant="20" id="LoL-dX-MX7"/>
+                            <constraint firstItem="HKZ-Mr-FVI" firstAttribute="bottom" secondItem="oxP-X4-3lE" secondAttribute="bottom" constant="193" id="Uxs-OO-J76"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="oxP-X4-3lE" id="Hz9-fc-xxb"/>
@@ -200,10 +235,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-ga-Zh3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-ga-Zh3">
                                 <rect key="frame" x="0.0" y="762" width="414" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="FrenchBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9iI-UK-D3T"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
@@ -216,6 +253,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DGo-2Z-idc"/>
                         <color key="backgroundColor" name="FrenchBackground"/>
+                        <constraints>
+                            <constraint firstItem="HI5-ga-Zh3" firstAttribute="leading" secondItem="DGo-2Z-idc" secondAttribute="leading" id="FiD-qM-JXx"/>
+                            <constraint firstItem="HI5-ga-Zh3" firstAttribute="bottom" secondItem="DGo-2Z-idc" secondAttribute="bottom" id="Loa-nJ-gSN"/>
+                            <constraint firstItem="HI5-ga-Zh3" firstAttribute="trailing" secondItem="DGo-2Z-idc" secondAttribute="trailing" id="jnX-WI-Sam"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ERV-3C-iKX"/>
                     <connections>
