@@ -1,9 +1,4 @@
-//
-//  API.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-19.
-//
+
 
 import Foundation
 

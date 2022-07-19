@@ -1,10 +1,3 @@
-//
-//  UILabelView.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-17.
-//
-
 import UIKit
 
 class UILabelView: UIView {

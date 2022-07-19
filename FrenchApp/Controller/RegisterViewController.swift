@@ -1,9 +1,4 @@
-//
-//  RegisterViewController.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-05.
-//
+
 
 import UIKit
 import FirebaseCoreInternal

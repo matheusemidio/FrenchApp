@@ -1,9 +1,4 @@
-//
-//  SocialViewController.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-10.
-//
+
 import UIKit
 
 private let identifier : String = "UIFriendCell"

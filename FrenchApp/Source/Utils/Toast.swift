@@ -1,8 +1,4 @@
-//
-//  Toast.swift
-//
-//  Created by Daniel Carvalho on 5/17/18.
-//
+
 
 import UIKit
 

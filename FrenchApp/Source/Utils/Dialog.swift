@@ -1,9 +1,3 @@
-//
-//  Dialog.swift
-//  IOS-FinalProject-LSBank
-//
-//  Created by user203175 on 11/10/21.
-//
 
 import Foundation
 import UIKit

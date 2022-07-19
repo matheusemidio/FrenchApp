@@ -1,9 +1,4 @@
-//
-//  VerbAPI.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-19.
-//
+
 
 
 import Foundation
@@ -26,10 +21,10 @@ class VerbAPI: Decodable {
         let method = "GET"
         
         
-        
-
-        let header = ["" : "",
-                      "" : ""]
+     
+//
+//        let header = ["" : "",
+//                      "" : ""]
         
         let payload : [String:String] = [:]
 

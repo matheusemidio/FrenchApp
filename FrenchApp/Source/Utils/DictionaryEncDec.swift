@@ -1,9 +1,4 @@
-//
-//  EncodeDecode.swift
-//  IOS2-Firebase-Example
-//
-//  Created by Daniel Carvalho on 24/03/22.
-//
+
 
 import Foundation
 

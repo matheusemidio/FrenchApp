@@ -1,9 +1,4 @@
-//
-//  Contants.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-06.
-//
+
 import CoreGraphics
 
 

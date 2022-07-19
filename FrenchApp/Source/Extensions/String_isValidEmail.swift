@@ -1,9 +1,4 @@
-//
-//  String_isEmail.swift
-//  IOS-FinalProject-LSBank
-//
-//  Created by user203175 on 11/9/21.
-//
+
 
 import Foundation
 

@@ -1,9 +1,4 @@
-//
-//  UIButton_shake.swift
-//  IOS2-Firebase-Example
-//
-//  Created by Daniel Carvalho on 2022-03-26.
-//
+
 
 import Foundation
 import UIKit

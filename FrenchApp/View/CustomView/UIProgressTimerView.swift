@@ -1,9 +1,4 @@
-//
-//  UIProgressTimerView.swift
-//  FrenchApp
-//
-//  Created by Matheus Cadena on 2022-05-14.
-//
+
 
 import UIKit
 
